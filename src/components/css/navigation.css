@@ -1,0 +1,9 @@
+div {
+  background-color: #6ac26e;
+  color: white;
+}
+
+div ul {
+  list-style-type: none;
+  display: flex;
+}

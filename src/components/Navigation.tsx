@@ -6,14 +6,9 @@ interface NavigationProps {
 
 const Nav = (props: NavigationProps) => {
   return (
-    <>
+    <section>
       <div>
-        <figure>
-          <img src="" alt="" />
-        </figure>
-      </div>
-      <h1>{props.name}</h1>
-      <div>
+        <h1>{props.name}</h1>
         <ul>
           <li>Home</li>
           <li>Prijsvoorspeller</li>
@@ -21,7 +16,7 @@ const Nav = (props: NavigationProps) => {
           <li>Login</li>
         </ul>
       </div>
-    </>
+    </section>
   );
 };
 

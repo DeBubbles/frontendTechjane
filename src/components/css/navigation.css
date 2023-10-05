@@ -1,10 +1,18 @@
+
 section {
   background-color: #6ac26e;
   color: white;
 }
 section div {
+  padding: 2vw 2vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  font-size: 1em;
+}
+
+section div h1{
+  font-size: 1.5em;
 }
 
 section div ul {
@@ -14,26 +22,23 @@ section div ul {
 
 section div ul li {
   align-items: center;
-}
-/* 
-section h1 {
-  margin: 0;
+  margin-left: 2vh;
 }
 
-ul {
-  list-style-type: none;
-  display: flex;
-}
-
-ul li {
-  margin-right: 20px;
-}
-
-ul li:last-child {
-  margin-right: 0;
-}
-
-a {
+section div a{
   text-decoration: none;
-  font-weight: bold;
-} */
+  color: white;
+  margin-right: 2vw;
+}
+
+section div button{
+  border: none;
+  background: none;
+  width: 5%;
+}
+
+section div button img{
+  cursor: pointer;
+  border-radius: 2vw;
+  width: 45%;
+} 

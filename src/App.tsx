@@ -4,7 +4,7 @@ import Nav from "./components/Navigation";
 function App() {
   return (
     <>
-      <Nav name="TechJane"></Nav>
+      <Nav name="TechJane" account={false}></Nav>
     </>
   );
 }

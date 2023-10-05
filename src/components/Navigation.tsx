@@ -1,4 +1,5 @@
 import "./css/navigation.css";
+import { useParams,  Outlet, createBrowserRouter, RouterProvider, Route, NavLink,Link } from "react-router-dom";
 import logo from "../assets/techjane.png";
 import placeholder from "../assets/placeholder_account.jpg";
 
@@ -15,10 +16,9 @@ const Nav = (props: NavigationProps) => {
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Prijsvoorspeller</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="">Contact</a></li>
+            <li><Link to="">Home</Link></li>
+            <li><Link to="prijsvoorspeller">Prijsvoorspeller</Link></li>
+            <li><Link to="">Projects</Link></li>
           </ul>
           <button><img src={placeholder} alt="placeholder"></img></button>
         </div>
@@ -30,10 +30,9 @@ const Nav = (props: NavigationProps) => {
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Prijsvoorspeller</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="">Contact</a></li>
+            <li><Link to="">Home</Link></li>
+            <li><Link to="prijsvoorspeller">Prijsvoorspeller</Link></li>
+            <li><Link to="">Projects</Link></li>
           </ul>
           <a href="#">Login</a>
         </div>

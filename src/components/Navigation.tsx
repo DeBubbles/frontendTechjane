@@ -1,4 +1,5 @@
 import "./css/navigation.css";
+import logo from "../assets/techjane.png";
 import placeholder from "../assets/placeholder_account.jpg";
 
 interface NavigationProps {
@@ -7,11 +8,12 @@ interface NavigationProps {
 }
 
 const Nav = (props: NavigationProps) => {
+  document.title = props.name;
   if(props.account){
     return (
       <section>
         <div>
-          <h1>{props.name}</h1>
+          <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
             <li>Home</li>
             <li>Prijsvoorspeller</li>
@@ -26,7 +28,7 @@ const Nav = (props: NavigationProps) => {
     return (
       <section>
         <div>
-          <h1>{props.name}</h1>
+          <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
             <li>Home</li>
             <li>Prijsvoorspeller</li>

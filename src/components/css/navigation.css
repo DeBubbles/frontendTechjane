@@ -1,9 +1,9 @@
 
-section {
+#navigation {
   background-color: #6ac26e;
   color: white;
 }
-section div {
+#navigation div {
   padding: 2vw 2vh;
   display: flex;
   align-items: center;
@@ -11,33 +11,33 @@ section div {
   font-size: 1em;
 }
 
-section div img{
+#navigation div img{
   width: 7vw;
 }
 
-section div ul {
+#navigation div ul {
   display: flex;
   justify-content: space-between;
 }
 
-section div ul li {
+#navigation div ul li {
   align-items: center;
   margin-left: 2vh;
 }
 
-section div a{
+#navigation div a{
   text-decoration: none;
   color: white;
   margin-right: 2vw;
 }
 
-section div button{
+#navigation div button{
   border: none;
   background: none;
   width: 5%;
 }
 
-section div button img{
+#navigation div button img{
   cursor: pointer;
   border-radius: 2vw;
   width: 45%;

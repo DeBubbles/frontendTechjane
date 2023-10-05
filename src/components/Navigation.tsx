@@ -11,7 +11,7 @@ const Nav = (props: NavigationProps) => {
   document.title = props.name;
   if(props.account){
     return (
-      <section>
+      <section id="navigation">
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
@@ -26,7 +26,7 @@ const Nav = (props: NavigationProps) => {
     );
   }else{
     return (
-      <section>
+      <section id="navigation">
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>

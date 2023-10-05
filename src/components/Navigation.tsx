@@ -15,10 +15,10 @@ const Nav = (props: NavigationProps) => {
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
-            <li>Home</li>
-            <li>Prijsvoorspeller</li>
-            <li>Projects</li>
-            <li>Contact</li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Prijsvoorspeller</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Contact</a></li>
           </ul>
           <button><img src={placeholder} alt="placeholder"></img></button>
         </div>
@@ -30,10 +30,10 @@ const Nav = (props: NavigationProps) => {
         <div>
           <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
           <ul>
-            <li>Home</li>
-            <li>Prijsvoorspeller</li>
-            <li>Projects</li>
-            <li>Contact</li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Prijsvoorspeller</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Contact</a></li>
           </ul>
           <a href="#">Login</a>
         </div>

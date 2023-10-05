@@ -1,9 +1,9 @@
-section{
+#footer{
     background-color: #6ac26e;
     color: white;
 }
 
-section div{
+#footer div{
     padding: 2vw 2vh;
     display: block;
 }

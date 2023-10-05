@@ -1,13 +1,13 @@
 //import "./App.css";
 import Nav from "./components/Navigation";
 import Footer from "./components/Footer";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const Root = () => {
   return (
     <>
       <Nav name="Home" account={false}></Nav>
-      <div style={{height:500}}></div>
+      <Outlet></Outlet>
       <Footer></Footer>
     </>
   );

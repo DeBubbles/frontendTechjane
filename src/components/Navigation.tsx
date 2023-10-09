@@ -1,5 +1,13 @@
 import "./css/navigation.css";
-import { useParams,  Outlet, createBrowserRouter, RouterProvider, Route, NavLink,Link } from "react-router-dom";
+import {
+  useParams,
+  Outlet,
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  NavLink,
+  Link,
+} from "react-router-dom";
 import logo from "../assets/techjane.png";
 import placeholder from "../assets/placeholder_account.jpg";
 
@@ -10,36 +18,53 @@ interface NavigationProps {
 
 const Nav = (props: NavigationProps) => {
   document.title = props.name;
-  if(props.account){
+  if (props.account) {
     return (
       <section id="navigation">
         <div>
-          <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
+          <a href="https://techjane.be/">
+            <img src={logo} alt="logo techjane"></img>
+          </a>
           <ul>
-            <li><Link to="">Home</Link></li>
-            <li><Link to="prijsvoorspeller">Prijsvoorspeller</Link></li>
-            <li><Link to="">Projects</Link></li>
+            <li>
+              <Link to="">Home</Link>
+            </li>
+            <li>
+              <Link to="prijsvoorspeller">Prijsvoorspeller</Link>
+            </li>
+            <li>
+              <Link to="">Projects</Link>
+            </li>
           </ul>
-          <button><img src={placeholder} alt="placeholder"></img></button>
+          <button>
+            <img src={placeholder} alt="placeholder"></img>
+          </button>
         </div>
       </section>
     );
-  }else{
+  } else {
     return (
       <section id="navigation">
         <div>
-          <a href="https://techjane.be/"><img src={logo} alt="logo techjane" ></img></a>
+          <a href="https://techjane.be/">
+            <img src={logo} alt="logo techjane"></img>
+          </a>
           <ul>
-            <li><Link to="">Home</Link></li>
-            <li><Link to="prijsvoorspeller">Prijsvoorspeller</Link></li>
-            <li><Link to="">Projects</Link></li>
+            <li>
+              <Link to="">Home</Link>
+            </li>
+            <li>
+              <Link to="prijsvoorspeller">Prijsvoorspeller</Link>
+            </li>
+            <li>
+              <Link to="projects">Projects</Link>
+            </li>
           </ul>
           <a href="#">Login</a>
         </div>
       </section>
     );
   }
-  
 };
 
 export default Nav;

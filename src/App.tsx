@@ -1,7 +1,10 @@
-//import "./App.css";
 import Nav from "./components/Navigation";
 import Footer from "./components/Footer";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./components/Pages/Home";
+import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
+import Projects from "./components/Pages/Projects";
+import Contact from "./components/Pages/Contact";
 
 const Root = () => {
   return (
@@ -11,31 +14,39 @@ const Root = () => {
       <Footer></Footer>
     </>
   );
-}
+};
 
 const App = () => {
   const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Root/>,
-        children: [
-            {
-                path: "prijsvoorspeller",
-                // element: <Home/>
-            },
-            {
-                path: "projects",
-                // element: <Detail/>
-            }
-        ]
-    }
-]);
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "prijsvoorspeller",
+          element: <Prijsvoorspeller />,
+        },
+        {
+          path: "projects",
+          element: <Projects />,
+        },
+        {
+          path: "contacts",
+          element: <Contact />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <>
       <RouterProvider router={router} />
     </>
   );
-}
+};
 
 export default App;

@@ -8,7 +8,7 @@ const Footer = (props:FooterProps) => {
     return(
         <section id="footer">
             <div>
-                <h1>Contact us</h1>
+                
             </div>
         </section>
     )

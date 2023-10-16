@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../css/prijsvoorspeller.css";
 
+const test: any = null;
+
 function Prijsvoorspeller() {
   const [selectedOption, setSelectedOption] = useState(null);
 

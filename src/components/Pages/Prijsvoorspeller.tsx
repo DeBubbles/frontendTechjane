@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import '../css/prijsvoorspeller.css'
+import React, { useState } from "react";
+import "../css/prijsvoorspeller.css";
 
 function Prijsvoorspeller() {
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleOptionChange = (e) => {
+  const handleOptionChange = (e: any) => {
     setSelectedOption(e.target.value);
   };
 
@@ -20,7 +20,7 @@ function Prijsvoorspeller() {
           <input
             type="radio"
             value="optionA"
-            checked={selectedOption === 'optionA'}
+            checked={selectedOption === "optionA"}
             onChange={handleOptionChange}
           />
           Option A: Lorem Ipsum is a dummy text.
@@ -30,7 +30,7 @@ function Prijsvoorspeller() {
           <input
             type="radio"
             value="optionB"
-            checked={selectedOption === 'optionB'}
+            checked={selectedOption === "optionB"}
             onChange={handleOptionChange}
           />
           Option B: It is a type of pasta.
@@ -40,7 +40,7 @@ function Prijsvoorspeller() {
           <input
             type="radio"
             value="optionC"
-            checked={selectedOption === 'optionC'}
+            checked={selectedOption === "optionC"}
             onChange={handleOptionChange}
           />
           Option C: Lorem Ipsum comes from Latin roots.
@@ -57,4 +57,3 @@ function Prijsvoorspeller() {
 }
 
 export default Prijsvoorspeller;
-

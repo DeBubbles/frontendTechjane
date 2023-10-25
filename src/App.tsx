@@ -5,6 +5,7 @@ import Home from "./components/Pages/Home";
 import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
 import Projects from "./components/Pages/Projects";
 import Contact from "./components/Pages/Contact";
+import SignInPage from "./components/Pages/login";
 
 const Root = () => {
   return (
@@ -36,6 +37,14 @@ const App = () => {
         },
         {
           path: "contacts",
+          element: <Contact />,
+        },
+        {
+          path: "login",
+          element: <SignInPage />,
+        },
+        {
+          path: "register",
           element: <Contact />,
         },
       ],

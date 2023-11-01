@@ -2,49 +2,64 @@ import React, { Component } from "react";
 import "../css/login.css";
 
 class Login extends Component {
-  constructor(props) {
+  constructor( props : any) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
+      showCredentials: false,
     };
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = ( event : any) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleLogin = () => {
-    // You can add login logic here
-    // For a basic example, you can print the username and password to the console
-    console.log("Username: ", this.state.username);
-    console.log("Password: ", this.state.password);
+  handleLogin = (event) => {
+    event.preventDefault();
+  
+    this.setState({ showCredentials: true });
   };
+  
 
   render() {
     return (
       <div className="login-container">
         <h1>Login</h1>
-        <div className="input-container">
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div className="input-container">
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <button onClick={this.handleLogin}>Login</button>
+        <form onSubmit={this.handleLogin}>
+          <div className="input-container">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+          <div className="input-container">
+            <input
+              type="password"
+              name="password"
+              placeholder="Passwoord"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        {this.state.error && <p className="error">{this.state.error}</p>}
+        <a href="forgotpassword">Passwoord vergeten?</a>
+        <p>Nog geen account? <a href="register">Registreer je hier!</a></p>
+
+        {this.state.showCredentials && (
+          <div>
+            <p>Email: {this.state.email}</p>
+            <p>Password: {this.state.password}</p>
+          </div>
+        )}
       </div>
     );
   }

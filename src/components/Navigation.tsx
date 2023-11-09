@@ -60,7 +60,7 @@ const Nav = (props: NavigationProps) => {
               <Link to="projects">Projects</Link>
             </li>
           </ul>
-          <a href="#">Login</a>
+          <Link to="Login">Login</Link>
         </div>
       </section>
     );

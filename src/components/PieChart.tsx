@@ -12,12 +12,12 @@ function PieChart(answers: any[]) {
   };
 
   const data = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Commute", 2],
-    ["Watch TV", 2],
-    ["Sleep", 7],
+    ["Prijs", "Percentage"],
+    ["Back-End", 6],
+    ["Front-End", 6],
+    ["Database", 4],
+    ["Plugins", 2],
+    ["Security", 7],
   ];
 
   const options = {
@@ -38,7 +38,7 @@ function PieChart(answers: any[]) {
         height={"400px"}
       />
       <div className="total-value">
-        <p>Total Hours: {calculateTotal()}</p>
+        <p>Total Prijs: {calculateTotal()}$</p>
       </div>
     </div>
   );

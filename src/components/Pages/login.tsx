@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/login.css";
+import "../css/authentication.css";
 
 class Login extends Component {
   constructor( props : any) {
@@ -25,7 +25,7 @@ class Login extends Component {
 
   render() {
     return (
-        <div className="login-container">
+        <div className="authentication-container">
         <h1>Login</h1>
         <form onSubmit={this.handleLogin}>
           <div className="input-container">

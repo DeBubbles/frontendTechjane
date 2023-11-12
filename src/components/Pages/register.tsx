@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/login.css";
+import "../css/authentication.css";
 
 class Register extends Component {
   constructor( props : any ) {
@@ -8,10 +8,10 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
-      firstname: "",
-      lastname: "",
-      showCredentials: false,
+      username: "",
+      //lastname: "",
       error: null,
+      showCredentials: false,
     };
   }
 
@@ -36,9 +36,31 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="login-container">
+      <div className="authentication-container">
         <h1>Register</h1>
         <form onSubmit={this.handleRegister}>
+          <div className="input-container">
+            <input
+              type="text"
+              name="username"
+              placeholder="Gebruikersnaam"
+              value={this.state.username}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+          {/*
+          <div className="input-container">
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Achternaam"
+              value={this.state.lastname}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+          */}
           <div className="input-container">
             <input
               type="email"
@@ -69,26 +91,6 @@ class Register extends Component {
               required
             />
           </div>
-          <div className="input-container">
-            <input
-              type="text"
-              name="firstname"
-              placeholder="Voornaam"
-              value={this.state.firstname}
-              onChange={this.handleInputChange}
-              required
-            />
-          </div>
-          <div className="input-container">
-            <input
-              type="text"
-              name="lastname"
-              placeholder="Achternaam"
-              value={this.state.lastname}
-              onChange={this.handleInputChange}
-              required
-            />
-          </div>
           <button type="submit">Register</button>
         </form>
         {this.state.error && <p className="error">{this.state.error}</p>}
@@ -96,10 +98,9 @@ class Register extends Component {
 
         {this.state.showCredentials && (
           <div>
+            <p>Username: {this.state.username}</p>
             <p>Email: {this.state.email}</p>
             <p>Password: {this.state.password}</p>
-            <p>Email: {this.state.firstname}</p>
-            <p>Password: {this.state.lastname}</p>
           </div>
         )}
       </div>

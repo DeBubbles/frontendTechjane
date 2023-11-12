@@ -25,8 +25,6 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <br />
         <div className="login-container">
         <h1>Login</h1>
         <form onSubmit={this.handleLogin}>
@@ -62,7 +60,6 @@ class Login extends Component {
             <p>Password: {this.state.password}</p>
           </div>
         )}
-      </div>
       </div>
     );
   }

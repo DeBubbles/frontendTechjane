@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/login.css";
+import "../css/authentication.css";
 
 class ForgotPassword extends Component {
   constructor(props : any) {
@@ -26,7 +26,7 @@ class ForgotPassword extends Component {
 
   render() {
     return (
-      <div className="login-container">
+      <div className="authentication-container">
         <h1>Wachtwoord herstellen</h1>
         <form onSubmit={this.handleResetPassword}>
           <div className="input-container">

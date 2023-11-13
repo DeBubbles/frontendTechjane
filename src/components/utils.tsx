@@ -3,11 +3,11 @@
 export const getValueForOption = (option: string): number => {
     switch (option) {
       case 'optionA':
-        return 1;
+        return 25;
       case 'optionB':
-        return 2;
+        return 50;
       case 'optionC':
-        return 3;
+        return 100;
       default:
         return 0;
     }

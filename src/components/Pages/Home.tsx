@@ -1,15 +1,17 @@
-import React from 'react';
-import '../css/home.css'; // Create a CSS file named Home.css in the same directory
-
+import React from "react";
+import "../css/home.css";
 
 function Home() {
   return (
     <div className="home-container">
       <section className="intro-section">
         <p className="intro-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <a href="/Prijsvoorspeller" className="cta-button">Start Now</a>
+        <a href="/Prijsvoorspeller" className="cta-button">
+          Start Now
+        </a>
       </section>
 
       <section className="hero-section">
@@ -20,14 +22,16 @@ function Home() {
       <section id="about-section" className="about-section">
         <h2>About Our Site</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </section>
 
       <section className="contact-section">
         <h2>Contact Us</h2>
         <p>
-          Have questions? Get in touch with us at <a href="mailto:info@example.com">info@example.com</a>.
+          Have questions? Get in touch with us at{" "}
+          <a href="mailto:info@example.com">info@example.com</a>.
         </p>
       </section>
     </div>
@@ -35,4 +39,3 @@ function Home() {
 }
 
 export default Home;
-

@@ -1,44 +1,35 @@
 import Chart from "react-google-charts";
-import { getValueForOption } from "./utils.tsx";
+
+export const data = ["Price", "Price Calculation"];
 
 function PieChart(answers: any[]) {
+  const chartData = answers.map((answer) => [answer.category, answer.price]);
+
   const calculateTotal = () => {
-    let total = 0;
-    answers.forEach((answer) => {
-      const value = getValueForOption(answer);
-      total += value;
-    });
-    return total;
+    return answers.reduce((total, answer) => total + answer.price, 0);
   };
 
-  const data = [
-    ["Prijs", "Percentage"],
-    ["Back-End", 6],
-    ["Front-End", 6],
-    ["Database", 4],
-    ["Plugins", 2],
-    ["Security", 7],
-  ];
-
   const options = {
-    title: "My Daily Activities",
     pieHole: 0.4,
     legend: "none",
     pieSliceText: "label",
     colors: ["#6AC26E", "#6AA26E", "#549957"],
+    tooltip: {
+      text: "value",
+    },
   };
 
   return (
     <div className="pie-chart-container">
       <Chart
         chartType="PieChart"
-        data={data}
+        data={[data, ...chartData]}
         options={options}
         width={"100%"}
-        height={"400px"}
+        height={"600px"}
       />
       <div className="total-value">
-        <p>Total Prijs: {calculateTotal()}$</p>
+        <p>Totale prijs: {calculateTotal()}</p>
       </div>
     </div>
   );

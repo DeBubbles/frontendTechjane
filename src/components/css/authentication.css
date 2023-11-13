@@ -8,24 +8,24 @@
   text-align: center;
 }
 
-h1 {
+.authentication-container h1 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.input-container {
+.authentication-container .input-container {
   margin: 10px 0;
   width: 90%;
 }
 
-input {
+.authentication-container input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-button {
+.authentication-container button {
   width: 90%;
   padding: 10px;
   background-color: #007bff;
@@ -35,6 +35,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.authentication-container button:hover {
   background-color: #0056b3;
 }

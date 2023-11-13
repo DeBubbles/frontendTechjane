@@ -1,65 +1,5 @@
-.intro-section {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.intro-text {
-  font-size: 1em;
-  color: #555; /* Change the color to your preference */
-}
-
-.intro-section .cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.intro-section .cta-button:hover {
-  background-color: #0056b3;
-}
-
 .home-container {
-  margin: 20px; /* Add 20px of margin on all sides */
-}
-
-.contact-section {
-  margin-bottom: 40px; /* Add 40px of margin at the bottom */
-}
-
-.section {
-  margin-bottom: 40px;
-}
-
-.intro-section {
-  background-color: #f8f9fa;
-  padding: 40px;
-  text-align: center;
-}
-
-.intro-text {
-  font-size: 1.2em;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.intro-section .cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.intro-section .cta-button:hover {
-  background-color: #0056b3;
+  margin: 20px;
 }
 
 .hero-section {
@@ -68,15 +8,14 @@
 }
 
 .main-heading {
-  font-size: 2.5em;
+  font-size: 2em;
   color: #333;
-  margin-bottom: 10px;
 }
 
 .sub-heading {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #555;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .cta-button {
@@ -95,22 +34,26 @@
 }
 
 .about-section,
+.services-section,
 .contact-section {
-  text-align: center;
+  margin-bottom: 40px;
 }
 
 .about-section h2,
+.services-section h2,
 .contact-section h2 {
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
-.about-section p,
-.contact-section p {
+.services-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.services-section li {
   font-size: 1.2em;
-  color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .contact-section a {
@@ -120,4 +63,17 @@
 
 .contact-section a:hover {
   text-decoration: underline;
+}
+
+.lorem-ipsum {
+  margin-top: 40px;
+}
+
+.lorem-ipsum h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.lorem-ipsum p {
+  font-size: 16px;
 }

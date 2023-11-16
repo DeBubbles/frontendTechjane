@@ -1,90 +1,110 @@
- import React, { useState } from 'react';
-import { getValueForOption } from '../utils.tsx';
-import '../css/prijsvoorspeller.css';
+import React, { useState } from "react";
+import "../css/prijsvoorspeller.css";
+import PieChart from "../PieChart.tsx";
+import questions, { Product, IQuestion } from "../utils/questions.tsx";
+
+interface ISelectedAnswer {
+  category: string;
+  question: string;
+  answer: string;
+  price: number;
+}
 
 function Prijsvoorspeller() {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [answers, setAnswers] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
+  const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
 
-  const questions = [
-    {
-      question: "What is Lorem Ipsum?",
-      options: [
-        { value: "optionA", text: "Option A: Lorem Ipsum is a dummy text." },
-        { value: "optionB", text: "Option B: It is a type of pasta." },
-        { value: "optionC", text: "Option C: Lorem Ipsum comes from Latin roots." }
-      ]
-    },
-    {
-      question: "What is React?",
-      options: [
-        { value: "optionA", text: "Option A: It is a JavaScript library for building user interfaces." },
-        { value: "optionB", text: "Option B: It is a type of programming language." },
-        { value: "optionC", text: "Option C: It is a database management system." }
-      ]
-    },
-    {
-      question: "What does CSS stand for?",
-      options: [
-        { value: "optionA", text: "Option A: Cascading Style Sheets." },
-        { value: "optionB", text: "Option B: Creative Style Selector." },
-        { value: "optionC", text: "Option C: Computer Style Script." }
-      ]
-    }
-  ];
+  const handleProductChange = (selectedProduct: Product) => {
+    setSelectedProduct(selectedProduct);
+    const newFilteredQuestions = questions.filter((question) => {
+      return question.products.includes(selectedProduct);
+    });
 
-  const handleOptionChange = (e) => {
+    setFilteredQuestions(newFilteredQuestions);
+  };
+
+  const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(e.target.value);
   };
 
   const handleNextQuestion = () => {
-    if (selectedOption) {
-      setAnswers([...answers, selectedOption]);
+    if (selectedOption !== null) {
+      const currentQuestion = filteredQuestions[currentQuestionIndex];
+      const selectedAnswer = currentQuestion.answers.find(
+        (a) => a.answer === selectedOption
+      );
+      if (selectedAnswer) {
+        setAnswers([
+          ...answers,
+          {
+            category: currentQuestion.category,
+            question: currentQuestion.question,
+            answer: selectedOption,
+            price: selectedAnswer.price,
+          },
+        ]);
+      }
+
       setSelectedOption(null);
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
 
-  const calculateTotal = () => {
-    let total = 0;
-    answers.forEach(answer => {
-      const value = getValueForOption(answer);
-      total += value;
-    });
-    return total;
-  };
-
   return (
-    <div className="container">
-      <div className="quiz-box">
-        <div className="question-box">
-          <h2>{questions[answers.length].question}</h2>
-          {questions[answers.length].options.map(option => (
-            <label key={option.value}>
-              <input
-                type="radio"
-                value={option.value}
-                checked={selectedOption === option.value}
-                onChange={handleOptionChange}
-              />
-              {option.text}
-            </label>
-          ))}
+    <>
+      {selectedProduct === null ? (
+        <div>
+          <h2>Kies het product voor de prijsvoorspeller:</h2>
+          <select
+            onChange={(e) =>
+              handleProductChange(
+                Product[e.target.value as keyof typeof Product]
+              )
+            }
+          >
+            <option>Selecteer een keuze</option>
+            {Object.values(Product)
+              .filter((value) => typeof value === "string")
+              .map((product) => (
+                <option key={product} value={product}>
+                  {product}
+                </option>
+              ))}
+          </select>
         </div>
-        <div className="answer-box">
-          {selectedOption && (
-            <div className="selected-answer">
-              <h3>You selected: {selectedOption}</h3>
+      ) : (
+        <>
+          {currentQuestionIndex === filteredQuestions.length ? (
+            PieChart(answers)
+          ) : (
+            <div className="container">
+              <div className="quiz-box">
+                <div className="question-box">
+                  <h2>{filteredQuestions[answers.length]?.question}</h2>
+                  {filteredQuestions[answers.length]?.answers.map((option) => (
+                    <label key={option.answer}>
+                      <input
+                        type="radio"
+                        value={option.answer}
+                        checked={selectedOption === option.answer}
+                        onChange={handleOptionChange}
+                      />
+                      {option.answer}
+                    </label>
+                  ))}
+                </div>
+                <div className="button">
+                  <button onClick={handleNextQuestion}>Next</button>
+                </div>
+              </div>
             </div>
           )}
-          <button onClick={handleNextQuestion}>Next</button>
-          {answers.length === questions.length && (
-            <div className="quiz-result">
-              <h3>Total Score: {calculateTotal()}</h3>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 }
 

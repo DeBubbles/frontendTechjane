@@ -1,79 +1,66 @@
-.home-container {
-  margin: 20px;
-}
-
-.hero-section {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.main-heading {
-  font-size: 2em;
+body {
+  font-family: Arial, sans-serif;
   color: #333;
-}
-
-.sub-heading {
-  font-size: 1.2em;
-  color: #555;
-  margin-top: 10px;
-}
-
-.cta-button {
+ }
+ 
+ .home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+ }
+ 
+ .intro-section {
+  max-width: 800px;
+  margin-bottom: 50px;
+ }
+ 
+ .intro-text {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #6ac26e;
+ }
+ 
+ .cta-button {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 18px;
   color: #fff;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.cta-button:hover {
-  background-color: #0056b3;
-}
-
-.about-section,
-.services-section,
-.contact-section {
-  margin-bottom: 40px;
-}
-
-.about-section h2,
-.services-section h2,
-.contact-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.services-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.services-section li {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.contact-section a {
-  color: #007bff;
+  background-color: #6ac26e;
+  border-radius: 4px;
   text-decoration: none;
-}
-
-.contact-section a:hover {
-  text-decoration: underline;
-}
-
-.lorem-ipsum {
-  margin-top: 40px;
-}
-
-.lorem-ipsum h2 {
-  font-size: 24px;
+  transition: background-color 0.3s;
+ }
+ 
+ .cta-button:hover {
+  background-color: #4a9d5e;
+ }
+ 
+ .hero-section {
+  max-width: 800px;
+  margin-bottom: 50px;
+ }
+ 
+ .main-heading {
+  font-size: 48px;
+  line-height: 1.2;
+  color: #6ac26e;
   margin-bottom: 10px;
-}
-
-.lorem-ipsum p {
-  font-size: 16px;
-}
+ }
+ 
+ .sub-heading {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #6ac26e;
+ }
+ 
+ .about-section, .contact-section {
+  max-width: 800px;
+  margin-bottom: 50px;
+ }
+ 
+ .about-section h2, .contact-section h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #6ac26e;
+  margin-bottom: 10px;

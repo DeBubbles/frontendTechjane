@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/authentication.css";
 
 class Login extends Component {
-  constructor( props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       email: "",
@@ -11,21 +11,20 @@ class Login extends Component {
     };
   }
 
-  handleInputChange = ( event : any) => {
+  handleInputChange = (event: any) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   handleLogin = (event) => {
     event.preventDefault();
-  
+
     this.setState({ showCredentials: true });
   };
-  
 
   render() {
     return (
-        <div className="authentication-container">
+      <div className="authentication-container">
         <h1>Login</h1>
         <form onSubmit={this.handleLogin}>
           <div className="input-container">
@@ -52,7 +51,6 @@ class Login extends Component {
         </form>
         {this.state.error && <p className="error">{this.state.error}</p>}
         <a href="forgotpassword">Passwoord vergeten?</a>
-        <p>Nog geen account? <a href="register">Registreer je hier!</a></p>
 
         {this.state.showCredentials && (
           <div>

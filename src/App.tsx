@@ -6,7 +6,6 @@ import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
 import Projects from "./components/Pages/Projects";
 import Contact from "./components/Pages/Contact";
 import Login from "./components/Pages/login";
-import Register from "./components/Pages/register";
 import ForgotPassword from "./components/Pages/forgotpassword";
 
 const Root = () => {
@@ -44,10 +43,6 @@ const App = () => {
         {
           path: "login",
           element: <Login />,
-        },
-        {
-          path: "register",
-          element: <Register />,
         },
         {
           path: "forgotpassword",

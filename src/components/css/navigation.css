@@ -1,4 +1,3 @@
-
 #navigation {
   background-color: #6ac26e;
   color: white;
@@ -11,7 +10,7 @@
   font-size: 1em;
 }
 
-#navigation div img{
+#navigation div img {
   width: 7vw;
 }
 
@@ -25,20 +24,20 @@
   margin-left: 2vh;
 }
 
-#navigation div a{
+#navigation div a {
   text-decoration: none;
   color: white;
   margin-right: 2vw;
 }
 
-#navigation div button{
+#navigation div button {
   border: none;
   background: none;
   width: 5%;
 }
 
-#navigation div button img{
+#navigation div button img {
   cursor: pointer;
   border-radius: 2vw;
   width: 45%;
-} 
+}

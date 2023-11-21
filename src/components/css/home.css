@@ -1,66 +1,102 @@
 body {
   font-family: Arial, sans-serif;
-  color: #333;
- }
- 
- .home-container {
+  color: #50575e;
+}
+
+.home-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
- }
- 
- .intro-section {
-  max-width: 800px;
-  margin-bottom: 50px;
- }
- 
- .intro-text {
-  font-size: 18px;
+  padding: 5vh 0;
+  max-width: 55vw;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+.hero-section,
+.about-section,
+.contact-section {
+  margin-bottom: 5vh;
+}
+
+.hero-section {
+  margin: 10vh 0;
+}
+
+.main-heading {
+  font-size: 4em;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #50575e;
+  margin-bottom: 1vh;
+}
+
+.sub-heading {
+  font-size: 1.3em;
   line-height: 1.5;
-  color: #6ac26e;
- }
- 
- .cta-button {
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.03em;
+  line-height: 1.3;
+  font-style: italic;
+  text-align: left;
+}
+
+.cta-button {
   display: inline-block;
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 1vw 7vh;
   color: #fff;
   background-color: #6ac26e;
   border-radius: 4px;
-  text-decoration: none;
   transition: background-color 0.3s;
- }
- 
- .cta-button:hover {
+  border: none;
+  margin: 3vh auto;
+  font-size: 1.8em;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cta-button:hover {
   background-color: #4a9d5e;
- }
- 
- .hero-section {
-  max-width: 800px;
-  margin-bottom: 50px;
- }
- 
- .main-heading {
-  font-size: 48px;
-  line-height: 1.2;
-  color: #6ac26e;
-  margin-bottom: 10px;
- }
- 
- .sub-heading {
-  font-size: 24px;
+}
+
+.about-section {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-section div {
+  padding-right: 3vw;
+}
+
+.about-section figure {
+  width: 275%;
+}
+
+.about-section figure img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.about-section h2,
+.contact-section h2 {
+  font-size: 2em;
   line-height: 1.5;
   color: #6ac26e;
- }
- 
- .about-section, .contact-section {
-  max-width: 800px;
-  margin-bottom: 50px;
- }
- 
- .about-section h2, .contact-section h2 {
-  font-size: 24px;
-  line-height: 1.5;
-  color: #6ac26e;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
+}
+
+.contact-section h2 {
+  text-align: center;
+}

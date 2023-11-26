@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/prijsvoorspeller.css";
 import PieChart from "../PieChart.tsx";
-import questions, { Product, IQuestion } from "../utils/questions.tsx";
+import questions, { Products, IQuestion } from "../utils/questions.tsx";
 
 interface ISelectedAnswer {
   category: string;
@@ -13,11 +13,11 @@ interface ISelectedAnswer {
 function Prijsvoorspeller() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<String | null>(null);
   const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
 
-  const handleProductChange = (selectedProduct: Product) => {
+  const handleProductChange = (selectedProduct: string) => {
     setSelectedProduct(selectedProduct);
     const newFilteredQuestions = questions.filter((question) => {
       return question.products.includes(selectedProduct);
@@ -57,23 +57,17 @@ function Prijsvoorspeller() {
     <>
       {selectedProduct === null ? (
         <div>
-          <h2>Kies het product voor de prijsvoorspeller:</h2>
-          <select
-            onChange={(e) =>
-              handleProductChange(
-                Product[e.target.value as keyof typeof Product]
-              )
-            }
-          >
-            <option>Selecteer een keuze</option>
-            {Object.values(Product)
-              .filter((value) => typeof value === "string")
-              .map((product) => (
-                <option key={product} value={product}>
-                  {product}
-                </option>
-              ))}
-          </select>
+          <h2>Selecteer het product voor de prijsvoorspeller.</h2>
+          <div>
+            {Object.values(Products).map((product) => (
+              <button
+                key={product}
+                onClick={() => handleProductChange(product)}
+              >
+                {product}
+              </button>
+            ))}
+          </div>
         </div>
       ) : (
         <>

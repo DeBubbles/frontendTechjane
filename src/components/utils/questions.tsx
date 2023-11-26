@@ -1,11 +1,5 @@
-export enum Product {
-  Webdesign,
-  API,
-  Webapplicaties,
-}
-
 export interface IQuestion {
-  products: Product[];
+  products: string[];
   category: string;
   question: string;
   answers: IAnswer[];
@@ -16,9 +10,15 @@ interface IAnswer {
   price: number;
 }
 
+export const Products = {
+  Webdesign: "Webdesign",
+  API: "API-ontwikkeling",
+  Webapplicatie: "Webapplicatie",
+};
+
 const questions: IQuestion[] = [
   {
-    products: [Product.Webdesign, Product.Webapplicaties],
+    products: [Products.Webdesign, Products.Webapplicatie],
     category: "Hosting",
     question: "Wat zijn de verwachte bezoekersaantallen?",
     answers: [
@@ -28,18 +28,18 @@ const questions: IQuestion[] = [
     ],
   },
   {
-    products: [Product.Webdesign, Product.Webapplicaties, Product.API],
+    products: [Products.Webdesign, Products.Webapplicatie, Products.API],
     category: "Complexiteit",
     question: "Hoe complex zijn de gewenste functionaliteiten?",
     answers: [
       { answer: "Eenvoudig", price: 10 },
       { answer: "Beginnend", price: 20 },
       { answer: "Gemiddeld", price: 30 },
-      { answer: "Complex", price: 30 },
+      { answer: "Complex", price: 40 },
     ],
   },
   {
-    products: [Product.API],
+    products: [Products.API],
     category: "Beveiliging",
     question: "Hoe goed moet de API beveiligd zijn?",
     answers: [

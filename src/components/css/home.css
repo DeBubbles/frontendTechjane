@@ -1,79 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #50575e;
+}
+
 .home-container {
-  margin: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+  max-width: 55vw;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+.hero-section,
+.about-section,
+.contact-section {
+  margin-bottom: 5vh;
 }
 
 .hero-section {
-  text-align: center;
-  margin-bottom: 40px;
+  margin: 10vh 0;
 }
 
 .main-heading {
-  font-size: 2em;
-  color: #333;
+  font-size: 4em;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #50575e;
+  margin-bottom: 1vh;
 }
 
 .sub-heading {
-  font-size: 1.2em;
-  color: #555;
-  margin-top: 10px;
+  font-size: 1.3em;
+  line-height: 1.5;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.03em;
+  line-height: 1.3;
+  font-style: italic;
+  text-align: left;
 }
 
 .cta-button {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  text-decoration: none;
+  padding: 1vw 7vh;
   color: #fff;
-  background-color: #007bff;
-  border-radius: 5px;
+  background-color: #6ac26e;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  border: none;
+  margin: 3vh auto;
+  font-size: 1.8em;
+  text-decoration: none;
+  text-align: center;
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #4a9d5e;
 }
 
-.about-section,
-.services-section,
-.contact-section {
-  margin-bottom: 40px;
+.about-section {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-section div {
+  padding-right: 3vw;
+}
+
+.about-section figure {
+  width: 275%;
+}
+
+.about-section figure img {
+  width: 100%;
+  border-radius: 12px;
 }
 
 .about-section h2,
-.services-section h2,
 .contact-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 2em;
+  line-height: 1.5;
+  color: #6ac26e;
+  margin-bottom: 1vh;
 }
 
-.services-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.services-section li {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.contact-section a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.contact-section a:hover {
-  text-decoration: underline;
-}
-
-.lorem-ipsum {
-  margin-top: 40px;
-}
-
-.lorem-ipsum h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.lorem-ipsum p {
-  font-size: 16px;
+.contact-section h2 {
+  text-align: center;
 }

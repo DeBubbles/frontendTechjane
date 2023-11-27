@@ -1,5 +1,10 @@
+export interface IProduct {
+  name: string;
+  icon: string;
+}
+
 export interface IQuestion {
-  products: string[];
+  products: IProduct[];
   category: string;
   question: string;
   answers: IAnswer[];
@@ -11,9 +16,18 @@ interface IAnswer {
 }
 
 export const Products = {
-  Webdesign: "Webdesign",
-  API: "API-ontwikkeling",
-  Webapplicatie: "Webapplicatie",
+  Webdesign: {
+    name: "Webdesign",
+    icon: "globe",
+  },
+  API: {
+    name: "API-ontwikkeling",
+    icon: "shield-halved",
+  },
+  Webapplicatie: {
+    name: "Webapplicatie",
+    icon: "filter",
+  },
 };
 
 const questions: IQuestion[] = [

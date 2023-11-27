@@ -1,7 +1,21 @@
 import React, { useState } from "react";
 import "../css/prijsvoorspeller.css";
 import PieChart from "../PieChart.tsx";
-import questions, { Products, IQuestion } from "../utils/questions.tsx";
+import questions, {
+  Products,
+  IQuestion,
+  IProduct,
+} from "../utils/questions.tsx";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import * as FontAwesomeSolidIcons from "@fortawesome/free-solid-svg-icons";
+import * as FontAwesomeRegularIcons from "@fortawesome/free-regular-svg-icons";
+import * as FontAwesomeBrandsIcons from "@fortawesome/free-brands-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+
+import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface ISelectedAnswer {
   category: string;
@@ -13,14 +27,17 @@ interface ISelectedAnswer {
 function Prijsvoorspeller() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<String | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
 
-  const handleProductChange = (selectedProduct: string) => {
+  const handleProductChange = (selectedProduct: IProduct) => {
     setSelectedProduct(selectedProduct);
+
     const newFilteredQuestions = questions.filter((question) => {
-      return question.products.includes(selectedProduct);
+      return question.products.some(
+        (product) => product.name === selectedProduct.name
+      );
     });
 
     setFilteredQuestions(newFilteredQuestions);
@@ -53,19 +70,43 @@ function Prijsvoorspeller() {
     }
   };
 
+  const geticonList = (module: any) =>
+    Object.keys(module)
+      .filter(
+        (key) =>
+          key !== "fas" && key !== "far" && key !== "fab" && key !== "prefix"
+      )
+      .map((icon) => module[icon]);
+
+  library.add(
+    ...[
+      ...geticonList(FontAwesomeRegularIcons),
+      ...geticonList(FontAwesomeSolidIcons),
+      ...geticonList(FontAwesomeBrandsIcons),
+    ]
+  );
+
   return (
     <>
       {selectedProduct === null ? (
-        <div>
+        <div className="selector">
           <h2>Selecteer het product voor de prijsvoorspeller.</h2>
-          <div>
+          <div className="product-list">
             {Object.values(Products).map((product) => (
-              <button
-                key={product}
-                onClick={() => handleProductChange(product)}
-              >
-                {product}
-              </button>
+              <div className="product-box">
+                <FontAwesomeIcon
+                  icon={["fas", product.icon as FontAwesomeSolidIcons.IconName]}
+                  size="4x"
+                />
+                <button
+                  key={product.name}
+                  onClick={() => {
+                    handleProductChange(product);
+                  }}
+                >
+                  {product.name}
+                </button>
+              </div>
             ))}
           </div>
         </div>

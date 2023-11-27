@@ -17,13 +17,23 @@ interface NavigationProps {
   account: boolean;
 }
 
-
-
 function handleDropdown() {
   const dropdownMenu = document.getElementById('dropdownMenu') as HTMLElement;
   const dropdownContent = document.getElementById('dropdownContent') as HTMLElement;
 
+  dropdownContent.style.display = 'none';
+
   dropdownMenu.addEventListener('mouseenter', () => {
+    const dropdownRect = dropdownMenu.getBoundingClientRect();
+    
+    if (window.innerWidth - dropdownRect.right < dropdownContent.offsetWidth) {
+      dropdownContent.style.right = '0';
+      dropdownContent.style.left = 'auto';
+    } else {
+      dropdownContent.style.left = `${dropdownRect.left}px`;
+      dropdownContent.style.right = 'auto';
+    }
+    
     dropdownContent.style.display = 'block';
   });
 

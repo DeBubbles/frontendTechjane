@@ -4,9 +4,10 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
 import Projects from "./components/Pages/Projects";
-import Contact from "./components/Pages/Contact";
+import Config from "./components/Pages/Config";
 import Login from "./components/Pages/login";
 import ForgotPassword from "./components/Pages/forgotpassword";
+import Admin from "./components/Pages/Admin";
 
 const Root = () => {
   return (
@@ -37,16 +38,20 @@ const App = () => {
           element: <Projects />,
         },
         {
-          path: "contacts",
-          element: <Contact />,
-        },
-        {
           path: "login",
           element: <Login />,
         },
         {
           path: "forgotpassword",
           element: <ForgotPassword />,
+        },
+        {
+          path: "config",
+          element: <Config/>,
+        },
+        {
+          path: "admin",
+          element: <Admin/>
         },
       ],
     },

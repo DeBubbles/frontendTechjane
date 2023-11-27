@@ -8,6 +8,7 @@ import {
   NavLink,
   Link,
 } from "react-router-dom";
+import { useEffect } from 'react';
 import logo from "../assets/techjane.png";
 import placeholder from "../assets/placeholder_account.jpg";
 
@@ -16,7 +17,42 @@ interface NavigationProps {
   account: boolean;
 }
 
-const Nav = (props: NavigationProps) => {
+function handleDropdown() {
+  const dropdownMenu = document.getElementById('dropdownMenu') as HTMLElement;
+  const dropdownContent = document.getElementById('dropdownContent') as HTMLElement;
+
+  dropdownContent.style.display = 'none';
+
+  dropdownMenu.addEventListener('mouseenter', () => {
+    const dropdownRect = dropdownMenu.getBoundingClientRect();
+    
+    if (window.innerWidth - dropdownRect.right < dropdownContent.offsetWidth) {
+      dropdownContent.style.right = '0';
+      dropdownContent.style.left = 'auto';
+    } else {
+      dropdownContent.style.left = `${dropdownRect.left}px`;
+      dropdownContent.style.right = 'auto';
+    }
+    
+    dropdownContent.style.display = 'block';
+  });
+
+  dropdownMenu.addEventListener('mouseleave', () => {
+    dropdownContent.style.display = 'none';
+  });
+
+  document.addEventListener('click', (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (!dropdownMenu.contains(target)) {
+      dropdownContent.style.display = 'none';
+    }
+  });
+}
+
+const Nav = (props: NavigationProps) => { 
+  useEffect(() => {
+    handleDropdown();
+  }, []);
   document.title = props.name;
   if (props.account) {
     return (
@@ -36,9 +72,20 @@ const Nav = (props: NavigationProps) => {
               <Link to="">Projects</Link>
             </li>
           </ul>
-          <button>
+         
+         <ul>
+          <li> <button>
             <img src={placeholder} alt="placeholder"></img>
           </button>
+          </li>
+          <li class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropbtn">Menu &#9776;</a>
+        <ul class="dropdown-content" id="dropdownContent">
+          <li><Link to="config">Configuration</Link></li>
+          <li><Link to="admin">Admin</Link></li>
+        </ul>
+      </li>
+         </ul>
         </div>
       </section>
     );
@@ -60,7 +107,17 @@ const Nav = (props: NavigationProps) => {
               <Link to="projects">Projects</Link>
             </li>
           </ul>
-          <Link to="Login">Login</Link>
+          <ul>
+          <li>
+            <a href="Login">Login</a>
+          </li>
+          <li class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropbtn">Menu &#9776;</a>
+        <ul class="dropdown-content" id="dropdownContent">
+        <li><Link to="config">Configuration</Link></li>
+        </ul>
+      </li>
+        </ul>
         </div>
       </section>
     );

@@ -71,8 +71,8 @@ const Nav = (props: NavigationProps) => {
           <li class="dropdown" id="dropdownMenu">
         <a href="#" class="dropbtn">Menu &#9776;</a>
         <ul class="dropdown-content" id="dropdownContent">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Configuration</a></li>
+          <li><Link to="config">Configuration</Link></li>
+          <li><Link to="admin">Admin</Link></li>
         </ul>
       </li>
          </ul>
@@ -104,8 +104,7 @@ const Nav = (props: NavigationProps) => {
           <li class="dropdown" id="dropdownMenu">
         <a href="#" class="dropbtn">Menu &#9776;</a>
         <ul class="dropdown-content" id="dropdownContent">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Configuration</a></li>
+        <li><Link to="config">Configuration</Link></li>
         </ul>
       </li>
         </ul>

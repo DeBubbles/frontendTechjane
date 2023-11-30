@@ -1,0 +1,45 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .config-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .config-page h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .config-page p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .config-page ul {
+    margin-left: 30px;
+  }
+  
+  .config-page li {
+    margin-bottom: 10px;
+  }
+  
+  .config-page a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .config-page a:hover {
+    text-decoration: underline;
+  }
+  

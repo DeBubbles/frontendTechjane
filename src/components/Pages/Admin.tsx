@@ -1,10 +1,16 @@
 import React from "react";
+import '../css/Admin.css'; 
 
 function Admin() {
   return (
-    <div>
-      <h1>Admin page</h1>
+    <div className="admin-page">
+      <h1>Admin</h1>
       
+      <ul>
+        <li>Alter Quiz</li>
+        <li>Add Quiz</li>
+        <li>Remove Quiz</li>
+      </ul>
     </div>
   );
 }

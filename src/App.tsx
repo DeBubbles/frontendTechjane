@@ -11,11 +11,11 @@ import Admin from "./components/Pages/Admin";
 
 const Root = () => {
   return (
-    <>
+    <main style={{position: "relative", minHeight: "100vh"}}>
       <Nav name="Home" account={false}></Nav>
       <Outlet></Outlet>
       <Footer></Footer>
-    </>
+    </main>
   );
 };
 
@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}/>
     </>
   );
 };

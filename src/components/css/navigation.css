@@ -1,6 +1,7 @@
 #navigation {
   background-color: #6ac26e;
   color: white;
+  min-height: 15vh;
 }
 #navigation div {
   padding: 2vw 2vh;

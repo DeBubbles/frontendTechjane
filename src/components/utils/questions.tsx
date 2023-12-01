@@ -22,11 +22,11 @@ export const Products = {
   },
   API: {
     name: "API-ontwikkeling",
-    icon: "shield-halved",
+    icon: "cloud-meatball",
   },
   Webapplicatie: {
     name: "Webapplicatie",
-    icon: "filter",
+    icon: "laptop-code",
   },
 };
 

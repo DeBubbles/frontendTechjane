@@ -67,6 +67,12 @@ button:focus-visible {
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --achtergrondkleur: #6ac26e;
+  --achtergrondkleur-dark: color-mix(
+    in srgb,
+    var(--achtergrondkleur),
+    #000 30%
+  );
 }
 
 body {

@@ -1,5 +1,5 @@
 #footer {
-  background-color: #6ac26e;
+  background-color: var(--achtergrondkleur);
   color: white;
   position: absolute;
   bottom: 0;
@@ -12,20 +12,13 @@
   display: block;
 }
 
-
 .footer-content {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
 }
 
-
 h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
 }
-
-
-
-
-

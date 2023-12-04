@@ -56,7 +56,7 @@ body {
   display: inline-block;
   padding: 1vw 7vh;
   color: #fff;
-  background-color: #6ac26e;
+  background-color: var(--achtergrondkleur);
   border-radius: 4px;
   transition: background-color 0.3s;
   border: none;
@@ -67,7 +67,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #4a9d5e;
+  background-color: var(--achtergrondkleur-dark);
 }
 
 .about-section {
@@ -92,7 +92,7 @@ body {
 .about-section h2 {
   font-size: 2em;
   line-height: 1.5;
-  color: #6ac26e;
+  color: var(--achtergrondkleur);
   margin-bottom: 1vh;
 }
 
@@ -102,24 +102,24 @@ body {
 }
 
 .contact-section h2 {
-  font-size: 2.5em; 
-  line-height: 1.2; 
-  color: #6ac26e; 
-  margin-bottom: 2vh; 
+  font-size: 2.5em;
+  line-height: 1.2;
+  color: var(--achtergrondkleur);
+  margin-bottom: 2vh;
 }
 
 .contact-section p {
-  font-size: 1.2em; 
-  color: #333; 
+  font-size: 1.2em;
+  color: #333;
 }
 
 .contact-section a {
-  color: #6ac26e; 
+  color: var(--achtergrondkleur);
   text-decoration: none;
-  border-bottom: 2px solid #6ac26e; 
-  transition: border-bottom 0.3s ease; 
+  border-bottom: 2px solid var(--achtergrondkleur);
+  transition: border-bottom 0.3s ease;
 }
 
 .contact-section a:hover {
-  border-bottom: 2px solid #333; 
+  border-bottom: 2px solid #333;
 }

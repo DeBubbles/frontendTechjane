@@ -13,9 +13,6 @@ import * as FontAwesomeRegularIcons from "@fortawesome/free-regular-svg-icons";
 import * as FontAwesomeBrandsIcons from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
-
-import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface ISelectedAnswer {
   category: string;
@@ -122,9 +119,9 @@ function Prijsvoorspeller() {
         <>
           {currentQuestionIndex === filteredQuestions.length ? (
             <div className="quiz-finished">
-            {PieChart(answers)}
-            <button onClick={handleRestartQuiz}>Go Back</button>
-          </div>
+              {PieChart(answers)}
+              <button onClick={handleRestartQuiz}>Go Back</button>
+            </div>
           ) : (
             <div className="container">
               <div className="quiz-box">

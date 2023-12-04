@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import '../css/Config.css'; 
+import "../css/Config.css";
 
 function Config() {
-  const [selectedLanguage, setSelectedLanguage] = useState('English');
-  const [selectedColor, setSelectedColor] = useState('#6ac26e');
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedColor, setSelectedColor] = useState("#6ac26e");
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -14,26 +14,19 @@ function Config() {
   };
 
   useEffect(() => {
-    const navigation = document.getElementById('navigation');
-    if (navigation) {
-      navigation.style.backgroundColor = selectedColor;
-    }
-
-    const footer = document.getElementById('footer');
-    if (footer) {
-      footer.style.backgroundColor = selectedColor;
+    const r = document.querySelector(":root");
+    if (r) {
+      r.style.setProperty("--achtergrondkleur", selectedColor);
     }
   }, [selectedColor]);
 
-  const languageOptions = ['French', 'Dutch', 'English'];
+  const languageOptions = ["French", "Dutch", "English"];
 
   return (
     <div className="config-page">
       <h1>Configuration</h1>
       <ul>
-        <li>
-          Change Colors
-        </li>
+        <li>Change Colors</li>
         <li>
           <div>
             <input
@@ -46,9 +39,7 @@ function Config() {
             />
           </div>
         </li>
-        <li>
-          Change Language
-        </li>
+        <li>Change Language</li>
         <li>
           <div className="dropdown">
             <button
@@ -61,9 +52,12 @@ function Config() {
             </button>
             <ul className="dropdown-menu">
               {languageOptions
-                .filter((language) => language !== selectedLanguage) 
+                .filter((language) => language !== selectedLanguage)
                 .map((language, index) => (
-                  <li key={index} onClick={() => handleLanguageChange(language)}>
+                  <li
+                    key={index}
+                    onClick={() => handleLanguageChange(language)}
+                  >
                     <button className="dropdown-item" type="button">
                       {language}
                     </button>

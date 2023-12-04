@@ -9,16 +9,10 @@ function Config() {
     setSelectedLanguage(language);
   };
 
-  const handleColorChange = (color: string) => {
-    setSelectedColor(color);
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedColor(event.target.value);
   };
 
-  const colorOptions = [
-    { name: 'Red', value: '#ff0000' },
-    { name: 'Blue', value: '#0000ff' },
-    { name: 'Green', value: '#00ff00' },
-    { name: 'RGB', value: 'rgb(255, 0, 255)' } // Added RGB option
-  ];
   const languageOptions = ['French', 'Dutch', 'English'];
 
   return (
@@ -29,26 +23,16 @@ function Config() {
           Change Colors
         </li>
         <li>
-          <div className="dropdown">
-            <button
-              className="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Select Color
-            </button>
-            <ul className="dropdown-menu">
-              {colorOptions.map((color, index) => (
-                <li key={index} onClick={() => handleColorChange(color.value)}>
-                  <button className="dropdown-item" type="button">
-                    {color.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+          <div>
+            <input
+              type="color"
+              className="form-control form-control-color"
+              id="exampleColorInput"
+              value={selectedColor}
+              title="Choose your color"
+              onChange={handleColorChange}
+            />
           </div>
-          <span className="selected-color" style={{ backgroundColor: selectedColor }}></span>
         </li>
         <li>
           Change Language

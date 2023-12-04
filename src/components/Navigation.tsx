@@ -114,8 +114,8 @@ const Nav = (props: NavigationProps) => {
           <li class="dropdown" id="dropdownMenu">
         <a href="#" class="dropbtn">Menu &#9776;</a>
         <ul class="dropdown-content" id="dropdownContent">
-        <li><Link to="config">Configuration</Link></li>
-        <li><Link to="admin">Admin</Link></li>
+        <li><Link to="config"><button>Configuration</button></Link></li>
+        <li><Link to="admin"><button>Admin</button></Link></li>
         </ul>
       </li>
         </ul>

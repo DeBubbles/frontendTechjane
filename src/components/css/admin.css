@@ -1,45 +1,53 @@
-
+/* Reset some default browser styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .admin-page {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-page h1 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .admin-page p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .admin-page ul {
-    margin-left: 30px;
-  }
-  
-  .admin-page li {
-    margin-bottom: 10px;
-  }
-  
-  .admin-page a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .admin-page a:hover {
-    text-decoration: underline;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.admin-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-page h1 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.admin-page p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.admin-page ul {
+  margin-left: 30px;
+  padding-left: 0; /* Remove default padding */
+}
+
+.admin-page li {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.admin-page li:hover {
+  background-color: #f0f0f0;
+}
+
+.admin-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.admin-page a:hover {
+  text-decoration: underline;
+}

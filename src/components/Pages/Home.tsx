@@ -41,12 +41,14 @@ function Home() {
       </section>
 
       <section className="contact-section">
-        <h2>Neem contact op</h2>
-        <p>
-          Hebt u vragen? Contacteer ons via mail:{" "}
-          <a href="mailto:info@techjane.com">info@techjane.com</a>
-        </p>
-      </section>
+  <div className="contact-content">
+    <h2>Get in Touch</h2>
+    <p>If you have any questions or inquiries, don't hesitate to reach out to us!</p>
+    <div className="contact-info">
+      <p>Email us: <a href="mailto:info@techjane.com">info@techjane.com</a></p>
+    </div>
+  </div>
+</section>
     </div>
   );
 }

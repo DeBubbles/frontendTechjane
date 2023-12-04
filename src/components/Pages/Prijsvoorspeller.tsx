@@ -70,6 +70,14 @@ function Prijsvoorspeller() {
     }
   };
 
+  const handleRestartQuiz = () => {
+    setSelectedProduct(null);
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setAnswers([]);
+    setFilteredQuestions([]);
+  };
+
   const geticonList = (module: any) =>
     Object.keys(module)
       .filter(
@@ -113,7 +121,10 @@ function Prijsvoorspeller() {
       ) : (
         <>
           {currentQuestionIndex === filteredQuestions.length ? (
-            PieChart(answers)
+            <div className="quiz-finished">
+            {PieChart(answers)}
+            <button onClick={handleRestartQuiz}>Go Back</button>
+          </div>
           ) : (
             <div className="container">
               <div className="quiz-box">

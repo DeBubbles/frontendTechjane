@@ -103,3 +103,18 @@ label {
 .button button:hover {
   background-color: #0056b3;
 }
+
+.quiz-finished button {
+  border: none;
+  background-color: rgb(214, 214, 214);
+  transition: 0.2s;
+  font-weight: bold;
+  padding: 0.5vw;
+  border-radius: 0.2vw;
+  margin-top: 20px; 
+}
+
+.quiz-finished button:hover {
+  background-color: rgb(200, 200, 200); 
+  cursor: pointer;
+}

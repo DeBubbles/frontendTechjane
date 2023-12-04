@@ -1,4 +1,5 @@
 #navigation {
+  font-family: 'Arial', sans-serif;
   background-color: #6ac26e;
   color: white;
   min-height: 15vh;
@@ -20,9 +21,16 @@
   justify-content: space-between;
 }
 
-#navigation div ul li {
+#navigation div ul li a {
   align-items: center;
   margin-left: 2vh;
+  font-size: 1.2em; /* Increase the font size for links */
+  font-weight: bold; /* Make the font weight bold */
+  text-transform: uppercase;
+}
+
+#navigation div ul li a:hover{
+  color: #807f7c;
 }
 
 #navigation div a {

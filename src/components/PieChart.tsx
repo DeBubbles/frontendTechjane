@@ -29,7 +29,7 @@ function PieChart(answers: any[]) {
         height={"600px"}
       />
       <div className="total-value">
-        <p>Totale prijs: {calculateTotal()}</p>
+        <p>Totale prijs: {calculateTotal()}$</p>
       </div>
     </div>
   );

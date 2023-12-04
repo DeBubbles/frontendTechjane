@@ -11,3 +11,21 @@
   padding: 2vw 2vh;
   display: block;
 }
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+
+
+
+

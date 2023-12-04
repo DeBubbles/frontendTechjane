@@ -24,8 +24,8 @@
 #navigation div ul li a {
   align-items: center;
   margin-left: 2vh;
-  font-size: 1.2em; /* Increase the font size for links */
-  font-weight: bold; /* Make the font weight bold */
+  font-size: 1.2em; 
+  font-weight: bold; 
   text-transform: uppercase;
 }
 
@@ -90,7 +90,7 @@
 
 .dropdown-content li a:hover {
   background-color: #d6d6d6!important; 
-  width: 100%;
+  width: 70%;
 }
 
 .dropdown:hover .dropdown-content {

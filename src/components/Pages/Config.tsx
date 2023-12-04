@@ -3,7 +3,7 @@ import '../css/Config.css';
 
 function Config() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
-  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState('#6ac26e');
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -61,7 +61,7 @@ function Config() {
             </button>
             <ul className="dropdown-menu">
               {languageOptions
-                .filter((language) => language !== selectedLanguage) // Filter out selected language
+                .filter((language) => language !== selectedLanguage) 
                 .map((language, index) => (
                   <li key={index} onClick={() => handleLanguageChange(language)}>
                     <button className="dropdown-item" type="button">

@@ -60,13 +60,15 @@ function Config() {
               {selectedLanguage}
             </button>
             <ul className="dropdown-menu">
-              {languageOptions.map((language, index) => (
-                <li key={index} onClick={() => handleLanguageChange(language)}>
-                  <button className="dropdown-item" type="button">
-                    {language}
-                  </button>
-                </li>
-              ))}
+              {languageOptions
+                .filter((language) => language !== selectedLanguage) // Filter out selected language
+                .map((language, index) => (
+                  <li key={index} onClick={() => handleLanguageChange(language)}>
+                    <button className="dropdown-item" type="button">
+                      {language}
+                    </button>
+                  </li>
+                ))}
             </ul>
           </div>
         </li>

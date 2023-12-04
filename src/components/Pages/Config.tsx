@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../css/Config.css'; 
 
 function Config() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [selectedColor, setSelectedColor] = useState('');
 
-  const handleLanguageChange = (language: string) => {
+  const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
   };
 
-  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
   };
+
+  useEffect(() => {
+    const navigation = document.getElementById('navigation');
+    if (navigation) {
+      navigation.style.backgroundColor = selectedColor;
+    }
+
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.style.backgroundColor = selectedColor;
+    }
+  }, [selectedColor]);
 
   const languageOptions = ['French', 'Dutch', 'English'];
 

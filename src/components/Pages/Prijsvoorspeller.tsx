@@ -50,20 +50,54 @@ function Prijsvoorspeller() {
       const selectedAnswer = currentQuestion.answers.find(
         (a) => a.answer === selectedOption
       );
+
       if (selectedAnswer) {
-        setAnswers([
-          ...answers,
-          {
+        const answerIndex = answers.findIndex(
+          (answer) => answer.question === currentQuestion.question
+        );
+
+        if (answerIndex !== -1) {
+          // Als het antwoord al bestaat, update het
+          const updatedAnswers = [...answers];
+          updatedAnswers[answerIndex] = {
             category: currentQuestion.category,
             question: currentQuestion.question,
             answer: selectedOption,
             price: selectedAnswer.price,
-          },
-        ]);
+          };
+          setAnswers(updatedAnswers);
+        } else {
+          // Als het antwoord nog niet bestaat, voeg het toe
+          setAnswers([
+            ...answers,
+            {
+              category: currentQuestion.category,
+              question: currentQuestion.question,
+              answer: selectedOption,
+              price: selectedAnswer.price,
+            },
+          ]);
+        }
       }
 
       setSelectedOption(null);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const handlePrevQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      const prevQuestionIndex = currentQuestionIndex - 1;
+      setCurrentQuestionIndex(prevQuestionIndex);
+
+      const currentQuestion = filteredQuestions[prevQuestionIndex];
+      const answerIndex = answers.findIndex(
+        (answer) => answer.question === currentQuestion.question
+      );
+
+      if (answerIndex !== -1) {
+        setSelectedOption(answers[answerIndex].answer);
+      }
     }
   };
 
@@ -82,7 +116,6 @@ function Prijsvoorspeller() {
           key !== "fas" && key !== "far" && key !== "fab" && key !== "prefix"
       )
       .map((icon) => module[icon]);
-
   library.add(
     ...[
       ...geticonList(FontAwesomeRegularIcons),
@@ -126,19 +159,26 @@ function Prijsvoorspeller() {
             <div className="container">
               <div className="quiz-box">
                 <div className="question-box">
-                  <h2>{filteredQuestions[answers.length]?.question}</h2>
-                  {filteredQuestions[answers.length]?.answers.map((option) => (
-                    <label key={option.answer}>
-                      <input
-                        type="radio"
-                        value={option.answer}
-                        checked={selectedOption === option.answer}
-                        onChange={handleOptionChange}
-                      />
-                      {option.answer}
-                    </label>
-                  ))}
+                  <h2>{filteredQuestions[currentQuestionIndex]?.question}</h2>
+                  {filteredQuestions[currentQuestionIndex]?.answers.map(
+                    (option) => (
+                      <label key={option.answer}>
+                        <input
+                          type="radio"
+                          value={option.answer}
+                          checked={selectedOption === option.answer}
+                          onChange={handleOptionChange}
+                        />
+                        {option.answer}
+                      </label>
+                    )
+                  )}
                 </div>
+                {currentQuestionIndex !== 0 && (
+                  <div className="button">
+                    <button onClick={handlePrevQuestion}>Back</button>
+                  </div>
+                )}
                 <div className="button">
                   <button onClick={handleNextQuestion}>Next</button>
                 </div>

@@ -22,6 +22,29 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.question-box h2 {
+  font-weight: bold;
+  margin-bottom: 2vh;
+}
+
+.question-box .answer-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-box button {
+  background-color: white;
+  transition: background-color 0.1s;
+}
+
+.button.selected {
+  background-color: var(--achtergrondkleur);
+}
+
+.question-box button:hover {
+  background-color: var(--achtergrondkleur-dark);
+}
+
 .selector {
   text-align: center;
 }
@@ -84,11 +107,11 @@ label {
   font-weight: bold;
 }
 
-.button {
+.questionHandler .button {
   text-align: center;
 }
 
-.button button {
+.questionHandler .button button {
   margin: 0 auto;
   padding: 10px 20px;
   font-size: 16px;
@@ -100,7 +123,7 @@ label {
   margin-top: 10px;
 }
 
-.button button:hover {
+.questionHandler .button button:hover {
   background-color: #0056b3;
 }
 

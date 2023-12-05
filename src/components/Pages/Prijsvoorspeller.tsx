@@ -40,7 +40,7 @@ function Prijsvoorspeller() {
     setFilteredQuestions(newFilteredQuestions);
   };
 
-  const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOptionChange = (e: any) => {
     setSelectedOption(e.target.value);
   };
 
@@ -57,7 +57,6 @@ function Prijsvoorspeller() {
         );
 
         if (answerIndex !== -1) {
-          // Als het antwoord al bestaat, update het
           const updatedAnswers = [...answers];
           updatedAnswers[answerIndex] = {
             category: currentQuestion.category,
@@ -67,7 +66,6 @@ function Prijsvoorspeller() {
           };
           setAnswers(updatedAnswers);
         } else {
-          // Als het antwoord nog niet bestaat, voeg het toe
           setAnswers([
             ...answers,
             {
@@ -80,13 +78,61 @@ function Prijsvoorspeller() {
         }
       }
 
-      setSelectedOption(null);
+      const answerIndex = answers.findIndex(
+        (answer) =>
+          answer.question ===
+          filteredQuestions[currentQuestionIndex + 1].question
+      );
+
+      if (answerIndex !== -1) {
+        setSelectedOption(answers[answerIndex].answer);
+      } else {
+        setSelectedOption(null);
+      }
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
 
   const handlePrevQuestion = () => {
     if (currentQuestionIndex > 0) {
+      if (selectedOption !== null) {
+        const currentQuestion = filteredQuestions[currentQuestionIndex];
+        const selectedAnswer = currentQuestion.answers.find(
+          (a) => a.answer === selectedOption
+        );
+
+        if (selectedAnswer) {
+          const answerIndex = answers.findIndex(
+            (answer) => answer.question === currentQuestion.question
+          );
+
+          console.log(answerIndex);
+
+          if (answerIndex !== -1) {
+            const updatedAnswers = [...answers];
+            updatedAnswers[answerIndex] = {
+              category: currentQuestion.category,
+              question: currentQuestion.question,
+              answer: selectedOption,
+              price: selectedAnswer.price,
+            };
+            setAnswers(updatedAnswers);
+          } else {
+            setAnswers([
+              ...answers,
+              {
+                category: currentQuestion.category,
+                question: currentQuestion.question,
+                answer: selectedOption,
+                price: selectedAnswer.price,
+              },
+            ]);
+          }
+        }
+
+        setSelectedOption(null);
+      }
+
       const prevQuestionIndex = currentQuestionIndex - 1;
       setCurrentQuestionIndex(prevQuestionIndex);
 
@@ -160,27 +206,46 @@ function Prijsvoorspeller() {
               <div className="quiz-box">
                 <div className="question-box">
                   <h2>{filteredQuestions[currentQuestionIndex]?.question}</h2>
-                  {filteredQuestions[currentQuestionIndex]?.answers.map(
-                    (option) => (
-                      <label key={option.answer}>
-                        <input
-                          type="radio"
-                          value={option.answer}
-                          checked={selectedOption === option.answer}
-                          onChange={handleOptionChange}
-                        />
-                        {option.answer}
-                      </label>
-                    )
-                  )}
-                </div>
-                {currentQuestionIndex !== 0 && (
-                  <div className="button">
-                    <button onClick={handlePrevQuestion}>Back</button>
+                  <div className="answer-box">
+                    {filteredQuestions[currentQuestionIndex]?.answers.map(
+                      (option) => (
+                        <button
+                          key={option.answer}
+                          className={
+                            selectedOption === option.answer
+                              ? "button selected"
+                              : "button"
+                          }
+                          onClick={() =>
+                            handleOptionChange({
+                              target: { value: option.answer },
+                            })
+                          }
+                        >
+                          {option.answer}
+                        </button>
+                      )
+                    )}
                   </div>
-                )}
-                <div className="button">
-                  <button onClick={handleNextQuestion}>Next</button>
+                </div>
+                <div className="questionHandler">
+                  {currentQuestionIndex !== 0 && (
+                    <div className="button">
+                      <button onClick={handlePrevQuestion}>Back</button>
+                    </div>
+                  )}
+                  <div className="button">
+                    <button
+                      onClick={handleNextQuestion}
+                      disabled={selectedOption === null}
+                      style={{
+                        cursor:
+                          selectedOption === null ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

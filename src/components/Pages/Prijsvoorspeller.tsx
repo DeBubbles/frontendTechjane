@@ -76,12 +76,12 @@ function Prijsvoorspeller() {
             },
           ]);
         }
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
       }
 
       const answerIndex = answers.findIndex(
         (answer) =>
-          answer.question ===
-          filteredQuestions[currentQuestionIndex + 1].question
+          answer.question === filteredQuestions[currentQuestionIndex].question
       );
 
       if (answerIndex !== -1) {
@@ -89,7 +89,8 @@ function Prijsvoorspeller() {
       } else {
         setSelectedOption(null);
       }
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+
+      console.log(filteredQuestions.length + " " + currentQuestionIndex);
     }
   };
 

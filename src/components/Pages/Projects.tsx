@@ -4,28 +4,28 @@ import '../css/project.css'
 function Projects() {
   const projects = [
     {
-      name: 'Project 1',
-      image: 'https://picsum.photos/1200/600?random=1',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      website: 'https://www.project1.com'
+      name: 'Grinta Vitality Lab',
+      image: 'src/assets/projects/grintavitalitylab.png',
+      description: 'Bij Grinta Vitality Lab helpen we jou om jouw fitnessdoelen te bereiken en de beste versie van jezelf te worden. Onze persoonlijke training, groepslessen, fitnessbegeleiding en wellnessfaciliteiten zijn ontworpen om jouw gezondheid en welzijn te verbeteren. Sluit je aan bij onze fitnessfamilie en begin vandaag aan jouw weg naar een gezonder en fitter leven!',
+      website: 'https://www.grintavitalitylab.be/'
     },
     {
-      name: 'Project 2',
-      image: 'https://picsum.photos/1200/600?random=2',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      website: 'https://www.project2.com'
+      name: 'Katia Van Cauwenberghe',
+      image: 'src/assets/projects/katiavancauwenberghe.png',
+      description: '“Het leven zelf en alle mogelijkheden die ze biedt, heeft mij steeds geboeid, en mijn doelstelling is om alles zoveel mogelijk te verkennen en uit te diepen.”',
+      website: 'https://katiavancauwenberghe.be/'
     },
     {
-      name: 'Project 3',
-      image: 'https://picsum.photos/1200/600?random=3',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      website: 'https://www.project3.com'
+      name: 'Rman',
+      image: 'src/assets/projects/rman.png',
+      description: 'The power of visible. Rman kan je helpen bij al je grafische opdrachten zoals drukwerk, doeken, borden, textiel en alles wat je verder nog nodig hebt. Daarnaast kunnen we een website voor je creëren die past bij de stijl van je algehele merk. En heb je een nieuwe computer nodig om alles te kunnen bekijken, dan leveren we die ook!',
+      website: 'https://www.rman.be/'
     },
     {
-      name: 'Project 3',
-      image: 'https://picsum.photos/1200/600?random=4',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      website: 'https://www.project4.com'
+      name: 'Zumias',
+      image: 'src/assets/projects/zumias.png',
+      description: 'We provide healthcare institutions worldwide with a wide range of expertly-crafted stainless steel instruments and comprehensive support in order to achieve better patient outcomes.',
+      website: 'https://zumias.com/'
     }
   ];
 

@@ -27,18 +27,27 @@
   margin-bottom: 2vh;
 }
 
+/* Update the styles for the .question-box .answer-box class */
 .question-box .answer-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center buttons horizontally */
+  margin-top: 10px;
 }
 
+/* Remove margin for the buttons as they will be centered */
 .question-box button {
-  background-color: white;
-  transition: background-color 0.1s;
+  margin-right: 10px; /* Add right margin for spacing between buttons */
 }
+
+/* Apply the same styles for the finished quiz button */
+.quiz-finished button {
+  margin-right: 0; /* Remove right margin for the finished quiz button */
+}
+
+
 
 .button.selected {
-  background-color: var(--achtergrondkleur);
+  background-color: var(--achtergrondkleur-dark);
 }
 
 .question-box button:hover {
@@ -122,7 +131,7 @@ label {
   margin: 0 auto;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: var(--achtergrondkleur);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -131,20 +140,34 @@ label {
 }
 
 .questionHandler .button button:hover {
-  background-color: #0056b3;
+  background-color: var(--achtergrondkleur-dark);
+}
+
+.question-box button {
+  background-color: var(--achtergrondkleur);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .quiz-finished button {
+  background-color: var(--achtergrondkleur);
+  color: #fff;
   border: none;
-  background-color: rgb(214, 214, 214);
-  transition: 0.2s;
-  font-weight: bold;
-  padding: 0.5vw;
-  border-radius: 0.2vw;
-  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
 }
 
 .quiz-finished button:hover {
-  background-color: rgb(200, 200, 200);
-  cursor: pointer;
+  background-color: var(--achtergrondkleur-dark);
 }

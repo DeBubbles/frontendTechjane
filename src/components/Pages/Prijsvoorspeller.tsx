@@ -201,7 +201,20 @@ function Prijsvoorspeller() {
             <div className="quiz-finished">
               {PieChart(answers)}
               <button onClick={handleRestartQuiz}>Go Back</button>
+              <div className="contact-form">
+                <h2>Contact Us</h2>
+                <form>
+                 <label htmlFor="email">Email:</label>
+                 <input type="email" id="email" name="email" />
+
+                 <label htmlFor="message">Message:</label>
+                 <textarea id="message" name="message" rows={4} />
+
+                 <button type="submit">Submit</button>
+                </form>
+             </div>
             </div>
+            
           ) : (
             <div className="container">
               <div className="quiz-box">

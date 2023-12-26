@@ -1,5 +1,5 @@
 import Chart from "react-google-charts";
-
+import "../components/css/piechart.css"
 export const data = ["Price", "Price Calculation"];
 
 function PieChart(answers: any[]) {

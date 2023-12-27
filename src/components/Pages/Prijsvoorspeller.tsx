@@ -14,6 +14,9 @@ import * as FontAwesomeBrandsIcons from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
+import emailjs from "emailjs-com";
+
 interface ISelectedAnswer {
   category: string;
   question: string;
@@ -27,6 +30,8 @@ function Prijsvoorspeller() {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleProductChange = (selectedProduct: IProduct) => {
     setSelectedProduct(selectedProduct);
@@ -171,6 +176,29 @@ function Prijsvoorspeller() {
     ]
   );
 
+  const exportToEmail = () => {
+    const pieChartUrl = PieChart(answers); 
+    const priceDetails = answers.map((answer) => `${answer.question}: ${answer.price}`).join('\n');
+
+    
+    const templateParams = {
+      to_email: email,
+      message: message,
+      pie_chart_url: pieChartUrl,
+      price_details: priceDetails,
+    };
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
+      .then((response: { status: any; text: any; }) => {
+        console.log('Email sent!', response.status, response.text);
+        setEmail('');
+        setMessage('');
+      })
+      .catch((error: any) => {
+        console.error('Email could not be sent:', error);
+      });
+  };
+
   return (
     <>
       {selectedProduct === null ? (
@@ -200,20 +228,38 @@ function Prijsvoorspeller() {
           {currentQuestionIndex === filteredQuestions.length ? (
             <div className="quiz-finished">
               {PieChart(answers)}
-              <button onClick={handleRestartQuiz}>Go Back</button>
+              <button onClick={handleRestartQuiz}>Go Back</button> 
+              <button type="button" onClick={exportToEmail}>Export to Email</button>  
               <div className="contact-form">
                 <h2>Contact Us</h2>
+                <br />
                 <form>
-                 <label htmlFor="email">Email:</label>
-                 <input type="email" id="email" name="email" />
+                 
+                <label htmlFor="email">Email</label>
+                <input
+                 type="email"
+                 id="email"
+                 name="email"
+                 value={email} 
+                 onChange={(e) => setEmail(e.target.value)}
+                 placeholder="Enter your email"
+               />
 
-                 <label htmlFor="message">Message:</label>
-                 <textarea id="message" name="message" rows={4} />
-
+                <label htmlFor="message">Message</label>
+                <textarea
+                id="message"
+                name="message"
+                rows={4}
+                value={message} 
+                onChange={(e) => setMessage(e.target.value)} 
+                placeholder="Type your message here"
+                />
                  <button type="submit">Submit</button>
+                 
                 </form>
              </div>
             </div>
+            
             
           ) : (
             <div className="container">

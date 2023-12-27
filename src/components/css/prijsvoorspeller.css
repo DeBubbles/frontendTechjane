@@ -180,6 +180,7 @@ label {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  padding-bottom: 100px;
 }
 
 .contact-form h2 {
@@ -187,7 +188,6 @@ label {
   font-weight: bold;
   color: #333;
   margin-top: 20px;
-  
   background-color: #f9f9f9;
 }
 
@@ -222,6 +222,7 @@ label {
   background-color: var(--achtergrondkleur);
   color: white;
   cursor: pointer;
+  
 }
 
 .contact-form button:hover {

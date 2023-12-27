@@ -5,20 +5,36 @@
   bottom: 0;
   width: 100%;
   margin-bottom: 0px;
-}
-
-#footer div {
-  padding: 2vw 2vh;
-  display: block;
+  text-align: center;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
-h3 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+.left-content {
+  display: flex;
+  align-items: center;
+}
+
+.left-content p,
+.left-content a {
+  margin-right: 20px;
+}
+
+.right-content img {
+  width: 6vw;
+}
+
+.footer-content a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.footer-content p {
+  margin: 0;
 }

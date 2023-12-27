@@ -57,37 +57,35 @@ const Nav = (props: NavigationProps) => {
   if (props.account) {
     return (
       <section id="navigation">
-        <div>
-          <a href="https://techjane.be/">
-            <img src={logo} alt="logo techjane"></img>
-          </a>
-          <ul>
-            <li>
-              <Link to="">Home</Link>
-            </li>
-            <li>
-              <Link to="prijsvoorspeller">Prijsvoorspeller</Link>
-            </li>
-            <li>
-              <Link to="">Projects</Link>
-            </li>
-          </ul>
-         
-         <ul>
-          <li> <button>
-            <img src={placeholder} alt="placeholder"></img>
-          </button>
+      <div>
+        <a href="https://techjane.be/">
+          <img src={logo} alt="logo techjane"></img>
+        </a>
+        <ul>
+          <li>
+            <Link to="">Home</Link>
           </li>
-          <li class="dropdown" id="dropdownMenu">
-        <a href="#" class="dropbtn">Menu &#9776;</a>
-        <ul class="dropdown-content" id="dropdownContent">
-          <li><Link to="config">Configuration</Link></li>
-          <li><Link to="admin">Admin</Link></li>
+          <li>
+            <Link to="prijsvoorspeller">Prijsvoorspeller</Link>
+          </li>
+          <li>
+            <Link to="projects">Projects</Link>
+          </li>
         </ul>
-      </li>
-         </ul>
-        </div>
-      </section>
+        <ul>
+        <li>
+          <a href="Login">Login</a>
+        </li>
+        <li class="dropdown" id="dropdownMenu">
+      <a href="#" class="dropbtn">Menu &#9776;</a>
+      <ul class="dropdown-content" id="dropdownContent">
+      <li><Link to="config"><button>Configuration</button></Link></li>
+      <li><Link to="admin"><button>Admin</button></Link></li>
+      </ul>
+    </li>
+      </ul>
+      </div>
+    </section>
     );
   } else {
     return (
@@ -108,9 +106,6 @@ const Nav = (props: NavigationProps) => {
             </li>
           </ul>
           <ul>
-          <li>
-            <a href="Login">Login</a>
-          </li>
           <li class="dropdown" id="dropdownMenu">
         <a href="#" class="dropbtn">Menu &#9776;</a>
         <ul class="dropdown-content" id="dropdownContent">

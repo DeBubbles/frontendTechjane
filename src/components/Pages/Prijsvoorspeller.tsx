@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../css/prijsvoorspeller.css";
 import PieChart from "../PieChart.tsx";
 import questions, {

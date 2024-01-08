@@ -5,16 +5,16 @@ function Config() {
   const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('c') || "English");
   const [selectedColor, setSelectedColor] = useState(localStorage.getItem('selectedColor'));
 
-  const handleLanguageChange = (language) => {
+  const handleLanguageChange = (language: string) => {
     setSelectedLanguage(language);
   };
 
-  const handleColorChange = (event) => {
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedColor(event.target.value);
   };
 
   useEffect(() => {
-    const r = document.querySelector(":root");
+    const r = document.querySelector(":root") as HTMLElement;
     if (r && selectedColor) {
       r.style.setProperty("--achtergrondkleur", selectedColor);
       localStorage.setItem('selectedColor', selectedColor);
@@ -40,7 +40,7 @@ function Config() {
               type="color"
               className="form-control form-control-color"
               id="exampleColorInput"
-              value={selectedColor}
+              value={selectedColor || ""}
               title="Choose your color"
               onChange={handleColorChange}
             />

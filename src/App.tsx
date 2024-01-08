@@ -1,7 +1,7 @@
 import Nav from "./components/Navigation";
 import Footer from "./components/Footer";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Home from "./components/Pages/Home";
 import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
 import Projects from "./components/Pages/Projects";
@@ -70,7 +70,7 @@ const App = () => {
       localStorage.setItem('selectedLanguage', "English");
     }
 
-    const root = document.querySelector(":root");
+    const root = document.querySelector(":root") as HTMLElement;
     console.log(selectedLanguage);
 
     if (selectedColor && root) {

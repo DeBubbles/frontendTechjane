@@ -27,24 +27,19 @@
   margin-bottom: 2vh;
 }
 
-
 .question-box .answer-box {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 10px;
 }
 
-
 .question-box button {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
-
 
 .quiz-finished button {
-  margin-right: 0; 
+  margin-right: 0;
 }
-
-
 
 .button.selected {
   background-color: var(--achtergrondkleur-dark);
@@ -172,8 +167,6 @@ label {
   background-color: var(--achtergrondkleur-dark);
 }
 
-
-
 .contact-form {
   margin-top: 20px;
   padding: 20px;
@@ -222,9 +215,20 @@ label {
   background-color: var(--achtergrondkleur);
   color: white;
   cursor: pointer;
-  
 }
 
 .contact-form button:hover {
   background-color: var(--achtergrondkleur);
+}
+
+.email-sent-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--achtergrondkleur-dark);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  z-index: 1000;
 }

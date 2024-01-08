@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../css/Config.css";
 
 function Config() {
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
-  const [selectedColor, setSelectedColor] = useState("#6ac26e");
+  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('c') || "English");
+  const [selectedColor, setSelectedColor] = useState(localStorage.getItem('selectedColor'));
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -15,10 +15,17 @@ function Config() {
 
   useEffect(() => {
     const r = document.querySelector(":root");
-    if (r) {
+    if (r && selectedColor) {
       r.style.setProperty("--achtergrondkleur", selectedColor);
+      localStorage.setItem('selectedColor', selectedColor);
     }
   }, [selectedColor]);
+
+  useEffect(() => {
+    if (selectedLanguage) {
+      localStorage.setItem('selectedLanguage', selectedLanguage);
+    }
+  }, [selectedLanguage]);
 
   const languageOptions = ["French", "Dutch", "English"];
 

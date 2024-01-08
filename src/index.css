@@ -67,7 +67,7 @@ button:focus-visible {
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --achtergrondkleur: #6ac26e;
+  /* --achtergrondkleur: #6ac26e; verplaatst naar App.tsx */
   --achtergrondkleur-dark: color-mix(
     in srgb,
     var(--achtergrondkleur),

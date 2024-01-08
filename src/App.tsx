@@ -1,6 +1,7 @@
 import Nav from "./components/Navigation";
 import Footer from "./components/Footer";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import Home from "./components/Pages/Home";
 import Prijsvoorspeller from "./components/Pages/Prijsvoorspeller";
 import Projects from "./components/Pages/Projects";
@@ -56,6 +57,26 @@ const App = () => {
       ],
     },
   ]);
+
+  useEffect(() => {
+    const selectedColor = localStorage.getItem('selectedColor');
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+
+    if (selectedColor == null) {
+      localStorage.setItem('selectedColor', "#6ac26e");
+    }
+
+    if (selectedLanguage == null) {
+      localStorage.setItem('selectedLanguage', "English");
+    }
+
+    const root = document.querySelector(":root");
+    console.log(selectedLanguage);
+
+    if (selectedColor && root) {
+      root.style.setProperty("--achtergrondkleur", selectedColor);
+    }
+  }, []);
 
   return (
     <>

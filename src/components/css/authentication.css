@@ -28,7 +28,7 @@
 .authentication-container button {
   width: 90%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: var(--achtergrondkleur);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -36,5 +36,5 @@
 }
 
 .authentication-container button:hover {
-  background-color: #0056b3;
+  background-color: var(--achtergrondkleur-dark);
 }

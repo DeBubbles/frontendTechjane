@@ -73,8 +73,6 @@ function Config() {
             </ul>
           </div>
         </li>
-        <li>Create Quiz</li>
-        <li>Settings</li>
       </ul>
     </div>
   );

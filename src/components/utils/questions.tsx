@@ -62,6 +62,39 @@ const questions: IQuestion[] = [
       { answer: "Hard", price: 30 },
     ],
   },
+
+  {
+    products: [Products.Webdesign, Products.Webapplicatie],
+    category: "User Interface",
+    question: "Hoe belangrijk is een intuïtieve gebruikersinterface?",
+    answers: [
+      { answer: "Niet belangrijk", price: 10 },
+      { answer: "Redelijk belangrijk", price: 20 },
+      { answer: "Belangrijk", price: 30 },
+      { answer: "Heel belangrijk", price: 40 },
+    ],
+  },
+  {
+    products: [Products.Webdesign],
+    category: "Ondersteuning",
+    question: "Op hoeveel apparaten moet de app werken?",
+    answers: [
+      { answer: "Alleen op smartphones", price: 10 },
+      { answer: "Smartphones en tablets", price: 20 },
+      { answer: "Alle soorten apparaten", price: 30 },
+    ],
+  },
+  {
+    products: [Products.Webapplicatie, Products.API],
+    category: "Gebruikersverkeer",
+    question: "Verwacht u piekuren in het gebruikersverkeer?",
+    answers: [
+      { answer: "Nee, gelijkmatig verkeer", price: 10 },
+      { answer: "Af en toe piekuren", price: 20 },
+      { answer: "Frequente piekuren", price: 30 },
+    ],
+  },
+
 ];
 
 export default questions;

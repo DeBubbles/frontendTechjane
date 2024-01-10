@@ -8,33 +8,33 @@
 .quiz-box {
   background-color: #f8f8f8;
   border-radius: 10px;
-  padding: 2vh;
+  padding: 4vh; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 600px; 
   width: 100%;
 }
 
 .question-box {
   background-color: #fff;
   border-radius: 10px;
-  padding: 4vh;
+  padding: 6vh; 
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .question-box h2 {
   font-weight: bold;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh; 
 }
 
 .question-box .answer-box {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px; 
 }
 
 .question-box button {
-  margin-right: 10px;
+  margin-right: 15px; 
 }
 
 .quiz-finished button {

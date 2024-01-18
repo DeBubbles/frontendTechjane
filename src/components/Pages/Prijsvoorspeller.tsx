@@ -38,7 +38,7 @@ function Prijsvoorspeller() {
   const handleProductChange = (selectedProduct: IProduct) => {
     setSelectedProduct(selectedProduct);
   };
-  
+
   const [allQuestions, setAllQuestions] = useState<IQuestion[]>([]);
 
   useEffect(() => {
@@ -47,13 +47,13 @@ function Prijsvoorspeller() {
         const fetchedQuestions = await fetchQuestionsFromAPI();
         setAllQuestions(fetchedQuestions);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.error("Error fetching questions:", error);
       }
     };
-  
+
     loadQuestions();
   }, []);
-  
+
   useEffect(() => {
     console.log("selectedProduct");
     console.log(selectedProduct);
@@ -66,8 +66,6 @@ function Prijsvoorspeller() {
       setFilteredQuestions(newFilteredQuestions);
     }
   }, [selectedProduct, allQuestions]);
-  
-  
 
   const handleOptionChange = (e: any) => {
     console.log("e.target.value");
@@ -223,12 +221,7 @@ function Prijsvoorspeller() {
     };
 
     emailjs
-      .send(
-        "techjane",
-        "template_0jxieew",
-        templateParams,
-        "yaXBT1fCWtR1RiCSu"
-      )
+      .send("techjane", "template_0jxieew", templateParams, "yaXBT1fCWtR1RiCSu")
       .then((response) => {
         console.log("Email sent!", response.status, response.text);
         setEmail("");

@@ -2,6 +2,7 @@ import "./css/navigation.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import logo from "../assets/techjane.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface NavigationProps {
   name: string;
@@ -116,6 +117,7 @@ const Nav = (props: NavigationProps) => {
               <ul className="dropdown-content" id="dropdownContent">
                 <li>
                   <Link to="config">
+                    <FontAwesomeIcon icon={["fas", "cogs"]} size="1x" />
                     <button>Configuration</button>
                   </Link>
                 </li>

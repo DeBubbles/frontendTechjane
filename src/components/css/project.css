@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: 70vw;
   margin: 0 auto;
+  padding-bottom: 15vh;
 }
 
 .project-link {

@@ -17,12 +17,14 @@
 
 .left-content {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  padding: 1vh 0;
+  margin-left: 5vw;
 }
 
-.left-content p,
-.left-content a {
-  margin-right: 20px;
+.left-content svg {
+  margin-right: 2px;
 }
 
 .right-content img {
@@ -32,7 +34,7 @@
 .footer-content a {
   text-decoration: none;
   color: white;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .footer-content p {

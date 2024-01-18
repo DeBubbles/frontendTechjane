@@ -32,7 +32,7 @@ export const Products = {
   },
 };
 
-const questions: IQuestion[] = [
+let questions: IQuestion[] = [
   {
     products: [Products.Webdesign, Products.Webapplicatie],
     category: "Hosting",

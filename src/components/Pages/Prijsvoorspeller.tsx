@@ -27,7 +27,7 @@ interface ISelectedAnswer {
 function Prijsvoorspeller() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(Products.Webdesign);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
   const [email, setEmail] = useState("");

@@ -3,11 +3,11 @@ import "../css/home.css";
 
 import home1 from "../../assets/home1.jpg";
 
-function Home() {
+function Home(props: { username: string })  {
   return (
     <div className="home-container">
       <section className="hero-section">
-        <h1 className="main-heading">Techjane Prijsvoorspeller</h1>
+      <h1 className="main-heading">{props.username} Prijsvoorspeller</h1>
         <p className="sub-heading">Ontdek Spectaculaire Inhoud</p>
       </section>
 

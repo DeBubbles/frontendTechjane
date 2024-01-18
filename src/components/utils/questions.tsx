@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export interface IProduct {
   name: string;
@@ -32,7 +32,7 @@ export const Products = {
   },
 };
 
-const questions: IQuestion[] = [
+let questions: IQuestion[] = [
   {
     products: [Products.Webdesign, Products.Webapplicatie],
     category: "Hosting",
@@ -96,33 +96,44 @@ const questions: IQuestion[] = [
       { answer: "Frequente piekuren", price: 30 },
     ],
   },
-
 ];
 
 export const fetchQuestionsFromAPI = async (): Promise<IQuestion[]> => {
   try {
-    const response = await axios.get('https://localhost:7279/Question/CallByType/url2', {
-      headers: {
-        'X-Api-Key': `F244428FB88143F9A8FA93EFF965CE73`
+    const response = await axios.get(
+      "https://localhost:7279/Question/CallByType/url2",
+      {
+        headers: {
+          "X-Api-Key": `F244428FB88143F9A8FA93EFF965CE73`,
+        },
       }
-    });
+    );
 
     const apiQuestions = response.data;
 
     const transformedQuestions = apiQuestions.map((apiQuestion: any) => ({
-      products: [Products.Webdesign],
-      category: 'API Category',
+      products: [Products.API],
+      category: "API Category",
       question: apiQuestion.vraagtext,
       answers: [
-        { answer: apiQuestion.antwoord1.text, price: apiQuestion.antwoord1.value },
-        { answer: apiQuestion.antwoord2.text, price: apiQuestion.antwoord2.value },
-        { answer: apiQuestion.antwoord3.text, price: apiQuestion.antwoord3.value }
-      ]
+        {
+          answer: apiQuestion.antwoord1.text,
+          price: apiQuestion.antwoord1.value,
+        },
+        {
+          answer: apiQuestion.antwoord2.text,
+          price: apiQuestion.antwoord2.value,
+        },
+        {
+          answer: apiQuestion.antwoord3.text,
+          price: apiQuestion.antwoord3.value,
+        },
+      ],
     }));
 
     return transformedQuestions;
   } catch (error) {
-    console.error('Error fetching questions:', error);
+    console.error("Error fetching questions:", error);
     return [];
   }
 };

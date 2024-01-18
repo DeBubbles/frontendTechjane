@@ -1,10 +1,11 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/prijsvoorspeller.css";
 import PieChart from "../PieChart.tsx";
-import questions, {
+import {
   Products,
   IQuestion,
   IProduct,
+  fetchQuestionsFromAPI,
 } from "../utils/questions.tsx";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -26,7 +27,7 @@ interface ISelectedAnswer {
 function Prijsvoorspeller() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(Products.Webdesign);
   const [answers, setAnswers] = useState<ISelectedAnswer[]>([]);
   const [filteredQuestions, setFilteredQuestions] = useState<IQuestion[]>([]);
   const [email, setEmail] = useState("");
@@ -36,21 +37,46 @@ function Prijsvoorspeller() {
 
   const handleProductChange = (selectedProduct: IProduct) => {
     setSelectedProduct(selectedProduct);
-
-    const newFilteredQuestions = questions.filter((question) => {
-      return question.products.some(
-        (product) => product.name === selectedProduct.name
-      );
-    });
-
-    setFilteredQuestions(newFilteredQuestions);
   };
+  
+  const [allQuestions, setAllQuestions] = useState<IQuestion[]>([]);
+
+  useEffect(() => {
+    const loadQuestions = async () => {
+      try {
+        const fetchedQuestions = await fetchQuestionsFromAPI();
+        setAllQuestions(fetchedQuestions);
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+  
+    loadQuestions();
+  }, []);
+  
+  useEffect(() => {
+    console.log("selectedProduct");
+    console.log(selectedProduct);
+    if (selectedProduct) {
+      const newFilteredQuestions = allQuestions.filter((question) => {
+        return question.products.some(
+          (product) => product.name === selectedProduct.name
+        );
+      });
+      setFilteredQuestions(newFilteredQuestions);
+    }
+  }, [selectedProduct, allQuestions]);
+  
+  
 
   const handleOptionChange = (e: any) => {
+    console.log("e.target.value");
+    console.log(e.target.value);
     setSelectedOption(e.target.value);
   };
 
   const handleNextQuestion = () => {
+    console.log("selectedOption");
     if (selectedOption !== null) {
       const currentQuestion = filteredQuestions[currentQuestionIndex];
       const selectedAnswer = currentQuestion.answers.find(

@@ -10,7 +10,7 @@ function PieChart(answers: any[]) {
     return answers.reduce((total, answer) => total + answer.price, 0);
   };
   const baseColor = chroma(localStorage.getItem('selectedColor') || "#000000");
-  const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), baseColor.darken(2).hex()]).mode('lch').colors(8).sort(() => Math.random() - 0.5);
+  const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), baseColor.darken(2).hex()]).mode('lch').colors(12).slice(3,9).sort(() => Math.random() - 0.5);
 
   const options = {
     pieHole: 0.4,

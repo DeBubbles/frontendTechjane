@@ -5,7 +5,7 @@ class Login extends Component {
   constructor(props: any) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: "",
       showCredentials: false,
     };
@@ -29,10 +29,10 @@ class Login extends Component {
         <form onSubmit={this.handleLogin}>
           <div className="input-container">
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
+              type="text"
+              name="name"
+              placeholder="Username"
+              value={this.state.username}
               onChange={this.handleInputChange}
               required
             />
@@ -54,7 +54,7 @@ class Login extends Component {
 
         {this.state.showCredentials && (
           <div>
-            <p>Email: {this.state.email}</p>
+            <p>Email: {this.state.username}</p>
             <p>Password: {this.state.password}</p>
           </div>
         )}

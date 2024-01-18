@@ -9,6 +9,8 @@ import Config from "./components/Pages/Config";
 import Login from "./components/Pages/login";
 import ForgotPassword from "./components/Pages/forgotpassword";
 import Admin from "./components/Pages/Admin";
+import { AuthProvider } from './components/Pages/auth'; 
+
 
 const Root = () => {
   return (
@@ -79,9 +81,11 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <AuthProvider>
+      <RouterProvider router={router}>
+        <Root />
+      </RouterProvider>
+    </AuthProvider>
   );
 };
 

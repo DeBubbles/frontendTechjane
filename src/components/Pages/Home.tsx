@@ -3,14 +3,15 @@ import "../css/home.css";
 
 import home1 from "../../assets/home1.jpg";
 
-function Home() {
+function Home(props: { username: string }) {
   return (
     <div className="home-bg">
       <div className="home-container">
         <section className="hero-section">
-          <h1 className="main-heading">Techjane Prijsvoorspeller</h1>
+          <h1 className="main-heading">{props.username} Prijsvoorspeller</h1>
           <p className="sub-heading">Ontdek Spectaculaire Inhoud</p>
         </section>
+
         <section className="intro-section">
           <p className="intro-text">
             Hallo, welkom bij Techjane! Onze Prijsvoorspeller ondersteunt u bij
@@ -21,7 +22,23 @@ function Home() {
             Start Nu
           </a>
         </section>
-
+        <section id="about-section" className="about-section">
+          <div>
+            <h2>Onze site</h2>
+            <p>
+              Techjane, een bedrijf gericht op innovatieve oplossingen en
+              wereldwijde betrokkenheid, biedt de Prijsvoorspeller aan om u te
+              helpen de marktprijs van uw product te voorspellen. Onze
+              geavanceerde tool maakt gebruik van cutting-edge technologieën en
+              data-analyse om nauwkeurige voorspellingen te genereren. Vertrouw
+              op Techjane om uw prijsstrategie te optimaliseren en uw
+              concurrentiepositie te versterken in een dynamische marktomgeving.
+            </p>
+            <a href="/Prijsvoorspeller" className="cta-button smooth-scroll">
+              Start Nu
+            </a>
+          </div>
+        </section>
         <section id="about-section" className="about-section">
           <div>
             <h2>Onze site</h2>

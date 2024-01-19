@@ -10,6 +10,7 @@ import Login from "./components/Pages/login";
 import ForgotPassword from "./components/Pages/forgotpassword";
 import Admin from "./components/Pages/Admin";
 import { AuthProvider } from './components/Pages/auth'; 
+import AddQuiz from "./components/Pages/AddQuiz";
 
 
 const Root = () => {
@@ -56,6 +57,10 @@ const App = () => {
           path: "admin",
           element: <Admin />,
         },
+        {
+          path : "add-quiz",
+          element: <AddQuiz/>
+        }
       ],
     },
   ]);

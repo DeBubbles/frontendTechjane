@@ -1,5 +1,6 @@
 import React from "react";
-import '../css/Admin.css'; 
+import '../css/Admin.css';
+import { Link } from "react-router-dom";
 
 function Admin() {
   return (
@@ -8,7 +9,7 @@ function Admin() {
       
       <ul>
         <li>Alter Quiz</li>
-        <li>Add Quiz</li>
+        <li> <Link to={"/add-quiz"}> Add Quiz </Link> </li>
         <li>Remove Quiz</li>
       </ul>
     </div>

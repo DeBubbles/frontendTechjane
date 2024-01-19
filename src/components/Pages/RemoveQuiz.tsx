@@ -27,7 +27,7 @@ function RemoveQuiz() {
                 }, 10000)
 
             } else {
-                console.error('Failed to add question to the database');
+                console.error('Failed to delete question to the database');
                 setResponseSucces(false);
             }
         } catch (error) {

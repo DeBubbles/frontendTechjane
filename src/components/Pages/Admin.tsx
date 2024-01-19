@@ -8,9 +8,9 @@ function Admin() {
       <h1>Admin</h1>
       
       <ul>
-        <li>Alter Quiz</li>
+        <li> <Link to={"/alter-quiz"}> Alter Quiz </Link></li>
         <li> <Link to={"/add-quiz"}> Add Quiz </Link> </li>
-        <li>Remove Quiz</li>
+        <li><Link to={"/remove-quiz"}>Remove Quiz </Link> </li>
       </ul>
     </div>
   );

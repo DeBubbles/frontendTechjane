@@ -11,6 +11,8 @@ import ForgotPassword from "./components/Pages/forgotpassword";
 import Admin from "./components/Pages/Admin";
 import { AuthProvider } from './components/Pages/auth'; 
 import AddQuiz from "./components/Pages/AddQuiz";
+import AlterQuiz from "./components/Pages/AlterQuiz";
+import RemoveQuiz from "./components/Pages/RemoveQuiz";
 
 
 const Root = () => {
@@ -60,6 +62,14 @@ const App = () => {
         {
           path : "add-quiz",
           element: <AddQuiz/>
+        },
+        {
+          path: "alter-quiz",
+          element: <AlterQuiz/>
+        },
+        {
+          path :"remove-quiz",
+          element: <RemoveQuiz/>
         }
       ],
     },

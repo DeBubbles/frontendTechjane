@@ -27,7 +27,7 @@
   margin-bottom: 10px;
   padding: 8px 12px;
   border-radius: 4px;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .admin-page a {
-  color: #007bff;
+  color: #000; /* Set link color to black */
   text-decoration: none;
 }
 

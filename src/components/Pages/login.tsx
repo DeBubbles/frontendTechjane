@@ -62,11 +62,9 @@ class Login extends Component {
 
   render() {
     if (this.state.loggedIn) {
-      // Redirect to a new page or handle the logged-in state as needed
       return (
         <div>
-          <p>Welcome {this.state.username}</p>
-          <Home/>
+          <Home username={this.state.username} />
         </div>
       );
     }
@@ -77,10 +75,10 @@ class Login extends Component {
         <form onSubmit={this.handleLogin}>
           <div className="input-container">
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={this.state.username}
               onChange={this.handleInputChange}
               required
             />
@@ -100,12 +98,6 @@ class Login extends Component {
         {this.state.error && <p className="error">{this.state.error}</p>}
         <a href="forgotpassword">Password vergeten?</a>
 
-        {/* {this.state.showCredentials && (
-          <div>
-            <p>Email: {this.state.username}</p>
-            <p>Password: {this.state.password}</p>
-          </div>
-        )} */}
       </div>
     );
   }

@@ -25,7 +25,7 @@ const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), base
     },
   };
 
-  return (
+  let returnData = (
     <div className="pie-chart-container">
       <Chart
         chartType="PieChart"
@@ -40,6 +40,9 @@ const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), base
       </div>
     </div>
   );
+  console.log(returnData);
+  return returnData;
+
 }
 
 export default PieChart;

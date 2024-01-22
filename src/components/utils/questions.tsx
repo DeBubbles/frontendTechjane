@@ -101,7 +101,7 @@ let questions: IQuestion[] = [
 export const fetchQuestionsFromAPI = async (): Promise<IQuestion[]> => {
   try {
     const response = await axios.get(
-      "https://localhost:7279/Question/CallByType/url9",
+      "https://localhost:7279/Question/CallByType/url9999",
       {
         headers: {
           "X-Api-Key": `F244428FB88143F9A8FA93EFF965CE73`,

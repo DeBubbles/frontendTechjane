@@ -121,6 +121,11 @@ const Nav = (props: NavigationProps) => {
                     <button>Configuration</button>
                   </Link>
                 </li>
+                <li>
+                  <Link to="admin">
+                    <button>Admin</button>
+                  </Link>
+                </li>
               </ul>
             </li>
           </ul>

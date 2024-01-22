@@ -1,0 +1,71 @@
+.add-quiz-page {
+    max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto;
+  }
+  
+  .add-quiz-page h1, .add-quiz-page h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-quiz-form {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .add-quiz-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-quiz-form input,
+  .add-quiz-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-quiz-form label:not(:last-child),
+  .add-quiz-form input:not(:last-child),
+  .add-quiz-form textarea:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .add-quiz-page button {
+    background-color: var(--achtergrondkleur);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-quiz-form button:hover {
+    background-color: #555; 
+  }
+  
+  .add-quiz-page a {
+    color: var(--achtergrondkleur);
+    text-decoration: none;
+  }
+  
+  .add-quiz-page a:hover {
+    text-decoration: underline;
+  }

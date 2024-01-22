@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../css/Config.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPalette, faLanguage, faUserCog } from "@fortawesome/free-solid-svg-icons";
+
 
 function Config() {
   const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('c') || "English");
@@ -9,9 +12,9 @@ function Config() {
     setSelectedLanguage(language);
   };
 
-  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedColor(event.target.value);
-  };
+  const handleColorChange = (e:any) => {
+    const newColor = e.target.value;
+    setSelectedColor(newColor);}
 
   useEffect(() => {
     const r = document.querySelector(":root") as HTMLElement;
@@ -31,22 +34,26 @@ function Config() {
 
   return (
     <div className="config-page">
-      <h1>Configuration</h1>
-      <ul>
-        <li>Change Colors</li>
+       <h1>Configuration <FontAwesomeIcon icon={faUserCog} size="lg" /></h1>
+       <ul>
+       <li>
+        <FontAwesomeIcon icon={faPalette} /> Change Colors
+      </li>
+      <li>
+        <div className="dropdown colors">
+          <input
+            type="color"
+            className="form-control form-control-color"
+            id="exampleColorInput"
+            value={selectedColor}
+            title="Choose your color"
+            onChange={handleColorChange}
+          />
+        </div>
+      </li>
         <li>
-          <div>
-            <input
-              type="color"
-              className="form-control form-control-color"
-              id="exampleColorInput"
-              value={selectedColor || ""}
-              title="Choose your color"
-              onChange={handleColorChange}
-            />
-          </div>
+          <FontAwesomeIcon icon={faLanguage} /> Change Language
         </li>
-        <li>Change Language</li>
         <li>
           <div className="dropdown">
             <button

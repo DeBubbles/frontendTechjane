@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "../css/prijsvoorspeller.css";
 import PieChart from "../PieChart.tsx";
 import {
@@ -35,37 +36,21 @@ function Prijsvoorspeller() {
   const [showEmailSentPopup, setShowEmailSentPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
-  const handleProductChange = (selectedProduct: IProduct) => {
+  const handleProductChange = async (selectedProduct: IProduct) => {
     setSelectedProduct(selectedProduct);
+    try {
+      const fetchedQuestions = await fetchQuestionsFromAPI(selectedProduct.name);
+      setFilteredQuestions(fetchedQuestions);
+    } catch (error) {
+      console.error("Error fetching questions for selected product:", error);
+    }
   };
 
-  const [allQuestions, setAllQuestions] = useState<IQuestion[]>([]);
-
   useEffect(() => {
-    const loadQuestions = async () => {
-      try {
-        const fetchedQuestions = await fetchQuestionsFromAPI();
-        setAllQuestions(fetchedQuestions);
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-      }
-    };
-
-    loadQuestions();
-  }, []);
-
-  useEffect(() => {
-    console.log("selectedProduct");
-    console.log(selectedProduct);
     if (selectedProduct) {
-      const newFilteredQuestions = allQuestions.filter((question) => {
-        return question.products.some(
-          (product) => product.name === selectedProduct.name
-        );
-      });
-      setFilteredQuestions(newFilteredQuestions);
+      console.log("Selected Product:", selectedProduct);
     }
-  }, [selectedProduct, allQuestions]);
+  }, [selectedProduct]);
 
   const handleOptionChange = (e: any) => {
     console.log("e.target.value");
@@ -124,6 +109,22 @@ function Prijsvoorspeller() {
     }
   };
 
+  // very experimental code, if anything breaks just yeet it out please
+  // i found it on stackoverflow and it seems to work but it seems weird to me why it works
+  const location = useLocation();
+  const initialLoad = useRef(true);
+
+  useEffect(() => {
+    if (initialLoad.current) {
+      initialLoad.current = false;
+      return;
+    }
+    if (location.pathname === "/prijsvoorspeller") {
+      handleRestartQuiz();
+    }
+  }, [location]);
+  // end of experimental code
+
   const handlePrevQuestion = () => {
     if (currentQuestionIndex > 0) {
       if (selectedOption !== null) {
@@ -160,7 +161,6 @@ function Prijsvoorspeller() {
             ]);
           }
         }
-
         setSelectedOption(null);
       }
 

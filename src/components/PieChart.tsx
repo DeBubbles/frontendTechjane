@@ -11,8 +11,11 @@ function PieChart(answers: any[]) {
     return answers.reduce((total, answer) => total + answer.price, 0);
   };
   const baseColor = chroma(localStorage.getItem('selectedColor') || "#000000");
-const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), baseColor.darken(2).hex()]).mode('lch').colors(16).slice(4,12).sort(() => Math.random() - 0.5);
+  
+  const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), baseColor.darken(2).hex()]).mode('lch').colors(16).slice(4,12).sort(() => Math.random() - 0.5);
+  
   const options = {
+    chartArea: {width: "100%", height: "100%"},
     pieHole: 0.4,
     legend: "none",
     pieSliceText: "label",
@@ -40,6 +43,7 @@ const palette = chroma.scale([baseColor.brighten(2).hex(), baseColor.hex(), base
       </div>
     </div>
   );
+  console.log("returnData");
   console.log(returnData);
   return returnData;
 

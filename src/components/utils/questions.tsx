@@ -23,7 +23,7 @@ export const Products = {
     icon: "globe",
   },
   API: {
-    name: "API-ontwikkeling",
+    name: "API",
     icon: "cloud-meatball",
   },
   Webapplicatie: {
@@ -32,76 +32,12 @@ export const Products = {
   },
 };
 
-let questions: IQuestion[] = [
-  {
-    products: [Products.Webdesign, Products.Webapplicatie],
-    category: "Hosting",
-    question: "Wat zijn de verwachte bezoekersaantallen?",
-    answers: [
-      { answer: "Minder dan 100 bezoekers per maand", price: 10 },
-      { answer: "100-1.000 bezoekers per maand", price: 20 },
-      { answer: "1.000-10.000 bezoekers per maand", price: 30 },
-    ],
-  },
-  {
-    products: [Products.Webdesign, Products.Webapplicatie, Products.API],
-    category: "Complexiteit",
-    question: "Hoe complex zijn de gewenste functionaliteiten?",
-    answers: [
-      { answer: "Eenvoudig", price: 10 },
-      { answer: "Beginnend", price: 20 },
-      { answer: "Gemiddeld", price: 30 },
-      { answer: "Complex", price: 40 },
-    ],
-  },
-  {
-    products: [Products.API],
-    category: "Beveiliging",
-    question: "Hoe goed moet de API beveiligd zijn?",
-    answers: [
-      { answer: "Niet", price: 10 },
-      { answer: "Basis", price: 20 },
-      { answer: "Hard", price: 30 },
-    ],
-  },
+let questions: IQuestion[] = [];
 
-  {
-    products: [Products.Webdesign, Products.Webapplicatie],
-    category: "User Interface",
-    question: "Hoe belangrijk is een intuïtieve gebruikersinterface?",
-    answers: [
-      { answer: "Niet belangrijk", price: 10 },
-      { answer: "Redelijk belangrijk", price: 20 },
-      { answer: "Belangrijk", price: 30 },
-      { answer: "Heel belangrijk", price: 40 },
-    ],
-  },
-  {
-    products: [Products.Webdesign],
-    category: "Ondersteuning",
-    question: "Op hoeveel apparaten moet de app werken?",
-    answers: [
-      { answer: "Alleen op smartphones", price: 10 },
-      { answer: "Smartphones en tablets", price: 20 },
-      { answer: "Alle soorten apparaten", price: 30 },
-    ],
-  },
-  {
-    products: [Products.Webapplicatie, Products.API],
-    category: "Gebruikersverkeer",
-    question: "Verwacht u piekuren in het gebruikersverkeer?",
-    answers: [
-      { answer: "Nee, gelijkmatig verkeer", price: 10 },
-      { answer: "Af en toe piekuren", price: 20 },
-      { answer: "Frequente piekuren", price: 30 },
-    ],
-  },
-];
-
-export const fetchQuestionsFromAPI = async (): Promise<IQuestion[]> => {
+export const fetchQuestionsFromAPI = async (selectedProduct: string): Promise<IQuestion[]> => {
   try {
     const response = await axios.get(
-      "https://localhost:7279/Question/CallByType/url9999",
+      "https://localhost:7279/Question/CallByType?webUrl=testWebUrl&product=" + selectedProduct,
       {
         headers: {
           "X-Api-Key": `F244428FB88143F9A8FA93EFF965CE73`,
@@ -112,8 +48,7 @@ export const fetchQuestionsFromAPI = async (): Promise<IQuestion[]> => {
     const apiQuestions = response.data;
 
     const transformedQuestions = apiQuestions.map((apiQuestion: any) => ({
-      products: [Products.API],
-      category: "API Category",
+      category: apiQuestion.category,
       question: apiQuestion.vraagtext,
       answers: [
         {
@@ -130,17 +65,13 @@ export const fetchQuestionsFromAPI = async (): Promise<IQuestion[]> => {
         },
       ],
     }));
-
+    console.log("Fetched Questions from API: ");
+    console.log(transformedQuestions);
     return transformedQuestions;
   } catch (error) {
     console.error("Error fetching questions:", error);
     return [];
   }
 };
-
-(async () => {
-  questions = await fetchQuestionsFromAPI();
-  console.log("Questions fetched from API: ", questions);
-})();
 
 export default questions;

@@ -237,3 +237,7 @@ label {
   padding: 10px;
   z-index: 1000;
 }
+
+.pie-chart-container {
+  margin-top:3vh;
+}
